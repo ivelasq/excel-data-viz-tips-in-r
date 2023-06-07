@@ -902,7 +902,7 @@ upe_original |>
 ## A heatmap with gt and gtExtras
 
 ```{r}
-#| code-line-numbers: "8,9"
+#| code-line-numbers: "9,10"
 library(gt)
 
 upe_original |>
@@ -1176,6 +1176,7 @@ mtcars |>
 ## Icon sets
 
 ```{r}
+#| code-line-numbers: "|5,6"
 mtcars |> 
   gt() |> 
   gt_fa_repeats(cyl, name = "car") |> 
