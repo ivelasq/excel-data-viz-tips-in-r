@@ -1,0 +1,730 @@
+[
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Introduction",
+    "text": "Introduction\n\n\n @ivelasq\n @ivelasq3\n @ivelasq3\n ivelasq.rbind.io"
+  },
+  {
+    "objectID": "index.html#inspiration-for-this-talk",
+    "href": "index.html#inspiration-for-this-talk",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Inspiration for this talk",
+    "text": "Inspiration for this talk"
+  },
+  {
+    "objectID": "index.html#another-inspiration-for-this-talk",
+    "href": "index.html#another-inspiration-for-this-talk",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Another inspiration for this talk",
+    "text": "Another inspiration for this talk"
+  },
+  {
+    "objectID": "index.html#another-inspiration-for-this-talk-1",
+    "href": "index.html#another-inspiration-for-this-talk-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Another inspiration for this talk",
+    "text": "Another inspiration for this talk"
+  },
+  {
+    "objectID": "index.html#one-more-inspiration",
+    "href": "index.html#one-more-inspiration",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "One more inspiration",
+    "text": "One more inspiration\n\nArt by Allison Horst"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips",
+    "href": "index.html#seven-essential-excel-data-visualization-tips",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-1",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-2",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map\nColor scales"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-3",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map\nColor scales\nSparklines"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-4",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-4",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map\nColor scales\nSparklines\nREPT charts"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-5",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-5",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map\nColor scales\nSparklines\nREPT charts\nData bars"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-6",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-6",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips",
+    "text": "Seven essential Excel data visualization tips\n\n\n\nImage bar chart\nGeographical heat map\nColor scales\nSparklines\nREPT charts\nData bars\nIcon sets"
+  },
+  {
+    "objectID": "index.html#tools-were-using-today",
+    "href": "index.html#tools-were-using-today",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Tools we’re using today",
+    "text": "Tools we’re using today"
+  },
+  {
+    "objectID": "index.html#ggplot2",
+    "href": "index.html#ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "ggplot2",
+    "text": "ggplot2\n\nggplot2 implements the grammar of graphics, a coherent system for describing and building graphs. With ggplot2, you can do more faster by learning one system and applying it in many places. - R4DS"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2",
+    "href": "index.html#a-rapid-introduction-to-ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\ngg stands for grammar of graphics.\n\nSet up the plot with ggplot()\nAdd your data\nSpecify variables with aes()\nChoose chart type with geom()\nAdd new elements as layers with a plus sign (+) between layers\nStyle with themes\n\nggplot(data = df_name, \n      aes(x = x_var_name, \n          y = y_var_name)) +\n  geom_type() +\n  ..."
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2-1",
+    "href": "index.html#a-rapid-introduction-to-ggplot2-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\nSet up plot\n\n\nlibrary(ggplot2)\n\nggplot(data = ci_np,\n       aes(x = year,\n           y = visitors)) +\n  geom_line()"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2-2",
+    "href": "index.html#a-rapid-introduction-to-ggplot2-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\nAdd customization\n\n\nlibrary(ggplot2)\n\nggplot(data = ci_np, \n       aes(x = year, \n           y = visitors)) +\n  geom_line(\n    color = \"#028BA8\",\n    linetype = \"dashed\"\n  )"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2-3",
+    "href": "index.html#a-rapid-introduction-to-ggplot2-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\n\n\nlibrary(ggplot2)\n\nggplot(data = ci_np, \n       aes(x = year, \n           y = visitors)) +\n  geom_line(\n    color = \"#028BA8\",\n    linetype = \"dashed\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2-4",
+    "href": "index.html#a-rapid-introduction-to-ggplot2-4",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\n\n\nlibrary(ggplot2)\n\nggplot(data = ci_np, \n       aes(x = year, \n           y = visitors)) +\n  geom_line(\n    color = \"#028BA8\",\n    linetype = \"dashed\"\n  ) +\n  theme_minimal() +\n  labs(\n    x = \"Year\",\n    y = \"Annual park visitors\",\n    title = \"Channel Islands NP Visitation\",\n    subtitle = \"(1963 - 2016)\"\n  )"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-ggplot2-5",
+    "href": "index.html#a-rapid-introduction-to-ggplot2-5",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to ggplot2",
+    "text": "A rapid introduction to ggplot2\nThe ggplot2 package works best with “tidy data”.\n\n\n“Wide” format:\npark_name `2012`   `2013`   `2014`\n&lt;chr&gt;     &lt;int&gt;    &lt;int&gt;    &lt;int&gt;\nCI        249594   212029   342161\n\n“Long”/“tidy” format:\npark_name visitors   year\n&lt;chr&gt;     &lt;int&gt;      &lt;int&gt;\nCI        249594     2012\nCI        212029     2013\nCI        342161     2014"
+  },
+  {
+    "objectID": "index.html#gt",
+    "href": "index.html#gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "gt",
+    "text": "gt\n\nWith the gt package, anyone can make wonderful-looking tables using the R programming language. The gt philosophy: we can construct a wide variety of useful tables with a cohesive set of table parts. These include the table header, the stub, the column labels and spanner column labels, the table body, and the table footer."
+  },
+  {
+    "objectID": "index.html#gt-1",
+    "href": "index.html#gt-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "gt",
+    "text": "gt\ngt stands for grammar of tables."
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-gt",
+    "href": "index.html#a-rapid-introduction-to-gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to gt",
+    "text": "A rapid introduction to gt\n\nlibrary(gt)\n\ngt(ci_np)\n\n\n\n\n\n  \n    \n    \n      region\n      state\n      code\n      park_name\n      type\n      visitors\n      year\n    \n  \n  \n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n212029\n2013\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n342161\n2014\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n324816\n2015\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n364807\n2016"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-gt-1",
+    "href": "index.html#a-rapid-introduction-to-gt-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to gt",
+    "text": "A rapid introduction to gt\n\nlibrary(gt)\n\ngt(ci_np) |&gt;\n  tab_header(title = \"Channel Islands NP Visitation\",\n             subtitle = \"Annual park visitors\")\n\n\n\n\n\n  \n    \n      Channel Islands NP Visitation\n    \n    \n      Annual park visitors\n    \n    \n      region\n      state\n      code\n      park_name\n      type\n      visitors\n      year\n    \n  \n  \n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n212029\n2013\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n342161\n2014\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n324816\n2015\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n364807\n2016"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-gt-2",
+    "href": "index.html#a-rapid-introduction-to-gt-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to gt",
+    "text": "A rapid introduction to gt\n\nlibrary(gt)\n\ngt(ci_np) |&gt;\n  tab_header(title = \"Channel Islands NP Visitation\",\n             subtitle = \"Annual park visitors\") |&gt;\n  fmt_number(columns = visitors,\n             decimals = 0,\n             use_seps = TRUE)\n\n\n\n\n\n  \n    \n      Channel Islands NP Visitation\n    \n    \n      Annual park visitors\n    \n    \n      region\n      state\n      code\n      park_name\n      type\n      visitors\n      year\n    \n  \n  \n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n212,029\n2013\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n342,161\n2014\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n324,816\n2015\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n364,807\n2016"
+  },
+  {
+    "objectID": "index.html#a-rapid-introduction-to-gt-3",
+    "href": "index.html#a-rapid-introduction-to-gt-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A rapid introduction to gt",
+    "text": "A rapid introduction to gt\n\nlibrary(gt)\n\ngt(ci_np) |&gt;\n  tab_header(\n    title = \"Channel Islands NP Visitation\",\n    subtitle = \"Annual park visitors\") |&gt; \n  fmt_number(columns = visitors,\n             decimals = 0,\n             use_seps = TRUE) |&gt; \n  data_color(visitors)\n\n\n\n\n\n  \n    \n      Channel Islands NP Visitation\n    \n    \n      Annual park visitors\n    \n    \n      region\n      state\n      code\n      park_name\n      type\n      visitors\n      year\n    \n  \n  \n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n212,029\n2013\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n342,161\n2014\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n324,816\n2015\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n364,807\n2016"
+  },
+  {
+    "objectID": "index.html#seven-essential-excel-data-visualization-tips-in-r",
+    "href": "index.html#seven-essential-excel-data-visualization-tips-in-r",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Seven essential Excel data visualization tips (in R!)",
+    "text": "Seven essential Excel data visualization tips (in R!)"
+  },
+  {
+    "objectID": "index.html#image-bar-chart-1",
+    "href": "index.html#image-bar-chart-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Image bar chart",
+    "text": "Image bar chart"
+  },
+  {
+    "objectID": "index.html#a-bar-plot",
+    "href": "index.html#a-bar-plot",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot",
+    "text": "A bar plot\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
+  },
+  {
+    "objectID": "index.html#a-bar-plot-1",
+    "href": "index.html#a-bar-plot-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot",
+    "text": "A bar plot\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl))"
+  },
+  {
+    "objectID": "index.html#a-bar-plot-2",
+    "href": "index.html#a-bar-plot-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot",
+    "text": "A bar plot\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl))) +\n  theme(legend.position = \"none\") + \n  labs(title = \"ggplot fill\")"
+  },
+  {
+    "objectID": "index.html#a-bar-plot-3",
+    "href": "index.html#a-bar-plot-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot",
+    "text": "A bar plot\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl)),\n           color = \"black\")"
+  },
+  {
+    "objectID": "index.html#a-bar-plot-4",
+    "href": "index.html#a-bar-plot-4",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot",
+    "text": "A bar plot\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl)),\n           color = \"black\") +\n  theme_minimal() + \n  labs(title = \"ggplot fill\")"
+  },
+  {
+    "objectID": "index.html#hello-ggpattern",
+    "href": "index.html#hello-ggpattern",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Hello, ggpattern!",
+    "text": "Hello, ggpattern!\n\n\n\nggpattern provides custom ggplot2 geoms which support filled areas with geometric and image-based patterns."
+  },
+  {
+    "objectID": "index.html#a-bar-plot-ggpattern-example",
+    "href": "index.html#a-bar-plot-ggpattern-example",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot + ggpattern example",
+    "text": "A bar plot + ggpattern example\n\nlibrary(ggplot2)\nlibrary(ggpattern)\n\nggplot(data = mtcars) +\n  geom_bar_pattern(\n    aes(x = cyl,\n        pattern_fill = as.factor(cyl)), \n    pattern = \"stripe\",\n    fill    = \"white\",\n    color  = \"black\") +\n  theme(legend.position = \"none\") + \n  labs(title = \"ggpattern pattern_fill\")"
+  },
+  {
+    "objectID": "index.html#a-bar-plot-ggpattern-example-output",
+    "href": "index.html#a-bar-plot-ggpattern-example-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A bar plot + ggpattern example",
+    "text": "A bar plot + ggpattern example"
+  },
+  {
+    "objectID": "index.html#a-cuter-bar-plot-ggpattern-example",
+    "href": "index.html#a-cuter-bar-plot-ggpattern-example",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A cuter bar plot + ggpattern example",
+    "text": "A cuter bar plot + ggpattern example\n\nlibrary(ggplot2)\nlibrary(ggpattern)\n\nggplot(data = mtcars) +\n  geom_bar_pattern(\n    aes(x = cyl,\n        pattern_fill = as.factor(cyl)), \n    pattern = \"placeholder\",\n    pattern_type = \"kitten\",\n    fill = \"white\",\n    color = \"black\") +\n  labs(title = \"ggpattern placeholder image\") + \n  theme(legend.position = 'none')"
+  },
+  {
+    "objectID": "index.html#a-cuter-bar-plot-ggpattern-example-output",
+    "href": "index.html#a-cuter-bar-plot-ggpattern-example-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A cuter bar plot + ggpattern example",
+    "text": "A cuter bar plot + ggpattern example"
+  },
+  {
+    "objectID": "index.html#an-image-bar-chart-with-ggpattern",
+    "href": "index.html#an-image-bar-chart-with-ggpattern",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "An image bar chart with ggpattern",
+    "text": "An image bar chart with ggpattern\n\nlibrary(ggplot2)\nlibrary(ggpattern)\n\nlogo1 &lt;- \"~/R/excel-data-viz-tips-in-r/images/excel.png\"\nlogo2 &lt;- \"~/R/excel-data-viz-tips-in-r/images/sheets.png\"\nlogo3 &lt;- \"~/R/excel-data-viz-tips-in-r/images/gt-tab.png\"\n\nggplot(data = mtcars) +\n  geom_bar_pattern(\n    aes(x = cyl,\n        pattern_filename = as.factor(cyl)),\n    alpha = 0,\n    pattern = \"image\",\n    pattern_type = \"squish\"\n  ) +\n  scale_pattern_filename_manual(\n    values = c(`4` = logo1, `6` = logo2, `8` = logo3)) +\n  theme_minimal() +\n  theme(legend.position = \"none\") +\n  labs(title = \"ggpattern custom image\")"
+  },
+  {
+    "objectID": "index.html#an-image-bar-chart-with-ggpattern-output",
+    "href": "index.html#an-image-bar-chart-with-ggpattern-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "An image bar chart with ggpattern",
+    "text": "An image bar chart with ggpattern"
+  },
+  {
+    "objectID": "index.html#geographical-heat-map-1",
+    "href": "index.html#geographical-heat-map-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Geographical heat map",
+    "text": "Geographical heat map\nAlso known as “choropleth” maps."
+  },
+  {
+    "objectID": "index.html#a-world-map",
+    "href": "index.html#a-world-map",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map",
+    "text": "A world map\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(maps)\n  \n# Access world map data using the `map_data()` function\nworld_map &lt;- map_data(\"world\")\nhead(world_map)\n\n       long      lat group order region subregion\n1 -69.89912 12.45200     1     1  Aruba      &lt;NA&gt;\n2 -69.89571 12.42300     1     2  Aruba      &lt;NA&gt;\n3 -69.94219 12.43853     1     3  Aruba      &lt;NA&gt;\n4 -70.00415 12.50049     1     4  Aruba      &lt;NA&gt;\n5 -70.06612 12.54697     1     5  Aruba      &lt;NA&gt;\n6 -70.05088 12.59707     1     6  Aruba      &lt;NA&gt;"
+  },
+  {
+    "objectID": "index.html#a-world-map-1",
+    "href": "index.html#a-world-map-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map",
+    "text": "A world map\n\nggplot(data = world_map) +\n  geom_map(map = world_map,\n           aes(x = long,\n               y = lat,\n               map_id = region))"
+  },
+  {
+    "objectID": "index.html#a-little-more-complex-world-map",
+    "href": "index.html#a-little-more-complex-world-map",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A little more complex world map",
+    "text": "A little more complex world map\n\nggplot(data = world_map) +\n  geom_map(map = world_map,\n           aes(x = long,\n               y = lat,\n               map_id = region),\n           color = \"white\",\n           size = 0.3,\n           fill = \"#22394A\") +\n  theme_void()"
+  },
+  {
+    "objectID": "index.html#a-little-more-complex-world-map-output",
+    "href": "index.html#a-little-more-complex-world-map-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A little more complex world map",
+    "text": "A little more complex world map"
+  },
+  {
+    "objectID": "index.html#a-world-map-with-data",
+    "href": "index.html#a-world-map-with-data",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map with data",
+    "text": "A world map with data\nUsing this week’s TidyTuesday data!\n\nlibrary(dplyr)\nowid_energy &lt;- \n  readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-06-06/owid-energy.csv')\n\nowid_energy_2021 &lt;-\n  owid_energy |&gt;\n  filter(year == 2021) |&gt;\n  mutate(\n    country =\n      case_match(\n        country,\n        \"United States\" ~ \"USA\",\n        \"United Kingdom\" ~ \"UK\",\n        \"Cote d'Ivoire\" ~ \"Ivory Coast\",\n        \"Democratic Republic of Congo\" ~ \"Democratic Republic of the Congo\",\n        \"Congo\" ~ \"Republic of Congo\",\n        \"Czechia\" ~ \"Czech Republic\",\n        .default = country\n      )\n  )"
+  },
+  {
+    "objectID": "index.html#a-world-map-with-data-1",
+    "href": "index.html#a-world-map-with-data-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map with data",
+    "text": "A world map with data\n\nworld_energy &lt;- \n  map_data(\"world\") |&gt;\n  left_join(owid_energy_2021, join_by(region == country))"
+  },
+  {
+    "objectID": "index.html#a-world-map-with-data-2",
+    "href": "index.html#a-world-map-with-data-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map with data",
+    "text": "A world map with data\n\nggplot(data = world_energy,)+\n  geom_map(map = world_energy,\n           aes(x = long,\n               y = lat, \n               map_id = region,\n               fill = per_capita_electricity),\n           color = \"white\", \n           size = 0.3)"
+  },
+  {
+    "objectID": "index.html#a-world-map-with-data-and-style",
+    "href": "index.html#a-world-map-with-data-and-style",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map with data and style",
+    "text": "A world map with data and style\n\nlibrary(MexBrewer)\n\nggplot(data = world_energy) +\n  geom_map(map = world_energy,\n           aes(x = long,\n               y = lat, \n               map_id = region,\n               fill = log(per_capita_electricity)),\n           color = \"white\", \n           size = 0.3) +\n  scale_fill_gradientn(colors = mex.brewer(\"Revolucion\"),\n                       name = \"1000's of kWh\") +\n  theme_void() +\n  theme(legend.position=\"bottom\") +\n  labs(title = \"Energy use per person, 2021\",\n       subtitle = \"Energy use not only includes electricity, but other also areas of consumption including transport, heating, and cooking.\")"
+  },
+  {
+    "objectID": "index.html#a-world-map-with-data-and-style-output",
+    "href": "index.html#a-world-map-with-data-and-style-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A world map with data and style",
+    "text": "A world map with data and style"
+  },
+  {
+    "objectID": "index.html#a-u.s.-map",
+    "href": "index.html#a-u.s.-map",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A U.S. map",
+    "text": "A U.S. map\n\nlibrary(ggplot2)\nlibrary(maps)\n\nstate &lt;- map_data(\"state\")\n\nggplot(data = state) +\n  geom_map(map = state,\n           aes(x = long, \n               y = lat, \n               map_id = region),\n           color = \"white\") +\n  ggtitle(\"U.S. Map\")"
+  },
+  {
+    "objectID": "index.html#a-u.s.-map-output",
+    "href": "index.html#a-u.s.-map-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A U.S. map",
+    "text": "A U.S. map"
+  },
+  {
+    "objectID": "index.html#a-u.s.-map-with-data",
+    "href": "index.html#a-u.s.-map-with-data",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A U.S. map with data",
+    "text": "A U.S. map with data\n\nlibrary(dplyr)\n\nus_data_2023 &lt;-\n  readxl::read_excel(\"data/table_5_04_b.xlsx\",\n                     skip = 3) |&gt; \n  transmute(state = tolower(`Census Division\\r\\nand State`),\n         energy = `March 2023 YTD...2`)\n\nus_map &lt;- \n  map_data(\"state\") |&gt;\n  left_join(us_data_2023, join_by(region == state))\n\nhead(us_map)\n\n       long      lat group order  region subregion energy\n1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;   7358\n2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;   7358\n3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;   7358\n4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;   7358\n5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;   7358\n6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;   7358"
+  },
+  {
+    "objectID": "index.html#a-u.s.-map-with-data-1",
+    "href": "index.html#a-u.s.-map-with-data-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A U.S. map with data",
+    "text": "A U.S. map with data\n\nlibrary(ggplot2)\nlibrary(maps)\n\nggplot(data = us_map) +\n  geom_map(map = us_map,\n           aes(x = long, \n               y = lat, \n               map_id = region,\n               fill = energy),\n           color = \"white\") +\n  ggtitle(\"U.S. Map\") +\n  theme_void()"
+  },
+  {
+    "objectID": "index.html#a-u.s.-map-with-data-1-output",
+    "href": "index.html#a-u.s.-map-with-data-1-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A U.S. map with data",
+    "text": "A U.S. map with data"
+  },
+  {
+    "objectID": "index.html#color-scales-1",
+    "href": "index.html#color-scales-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Color scales",
+    "text": "Color scales\nAlso known as “heatmaps”."
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2",
+    "href": "index.html#a-heatmap-with-ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2\n\nUSPersonalExpenditure\n\n                      1940   1945  1950 1955  1960\nFood and Tobacco    22.200 44.500 59.60 73.2 86.80\nHousehold Operation 10.500 15.500 29.00 36.5 46.20\nMedical and Health   3.530  5.760  9.71 14.0 21.10\nPersonal Care        1.040  1.980  2.45  3.4  5.40\nPrivate Education    0.341  0.974  1.80  2.6  3.64"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-1",
+    "href": "index.html#a-heatmap-with-ggplot2-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2\n\nlibrary(tidyr)\n\nupe &lt;-\n  USPersonalExpenditure |&gt; \n  as_tibble(rownames = NA) |&gt; \n  tibble::rownames_to_column(\"categories\") |&gt; \n  pivot_longer(cols = `1940`:`1960`,\n               names_to = \"year\",\n               values_to = \"expenditures\")\n\nhead(upe)\n\n# A tibble: 6 × 3\n  categories          year  expenditures\n  &lt;chr&gt;               &lt;chr&gt;        &lt;dbl&gt;\n1 Food and Tobacco    1940          22.2\n2 Food and Tobacco    1945          44.5\n3 Food and Tobacco    1950          59.6\n4 Food and Tobacco    1955          73.2\n5 Food and Tobacco    1960          86.8\n6 Household Operation 1940          10.5"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-2",
+    "href": "index.html#a-heatmap-with-ggplot2-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2\n\nlibrary(ggplot2)\n\nggplot(data = upe, \n       aes(x = year, \n           y = categories, \n           fill = expenditures)) +\n  geom_tile() +\n  scale_fill_gradient(low = \"#368990\",\n                      high = \"#F4C659\",\n                      guide = \"none\")"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-2-output",
+    "href": "index.html#a-heatmap-with-ggplot2-2-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-3",
+    "href": "index.html#a-heatmap-with-ggplot2-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2\n\nggplot(data = upe,\n       aes(x = year,\n           y = categories,\n           fill = expenditures)) +\n  geom_tile(color = \"white\",\n            size = 0.3) +\n  scale_fill_gradient(low = \"#368990\",\n                      high = \"#F4C659\",\n                      guide = \"none\") +\n  theme(axis.title.x = element_blank(),\n        axis.title.y = element_blank())"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-3-output",
+    "href": "index.html#a-heatmap-with-ggplot2-3-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-4",
+    "href": "index.html#a-heatmap-with-ggplot2-4",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2\n\nggplot(data = upe,\n       aes(x = year,\n           y = categories,\n           fill = expenditures)) +\n  geom_tile(color = \"white\",\n            size = 0.3) +\n  geom_text(aes(label = scales::dollar(expenditures)),\n            color = \"white\") +\n  scale_fill_gradient(low = \"#368990\",\n                      high = \"#F4C659\",\n                      guide = \"none\") +\n  theme_minimal() +\n  theme(axis.title.x = element_blank(),\n        axis.title.y = element_blank()) +\n  labs(title = \"United States Personal Expenditures\",\n       subtitle = \"(in billions of dollars)\")"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-ggplot2-4-output",
+    "href": "index.html#a-heatmap-with-ggplot2-4-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with ggplot2",
+    "text": "A heatmap with ggplot2"
+  },
+  {
+    "objectID": "index.html#but-what-if-we-already-have-a-table",
+    "href": "index.html#but-what-if-we-already-have-a-table",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "But what if we already have a table?",
+    "text": "But what if we already have a table?\n\nupe_original &lt;-\n  USPersonalExpenditure |&gt; \n  as_tibble(rownames = NA) |&gt;  \n  tibble::rownames_to_column(\"categories\") \n\nupe_original\n\n# A tibble: 5 × 6\n  categories          `1940` `1945` `1950` `1955` `1960`\n  &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 Food and Tobacco    22.2   44.5    59.6    73.2  86.8 \n2 Household Operation 10.5   15.5    29      36.5  46.2 \n3 Medical and Health   3.53   5.76    9.71   14    21.1 \n4 Personal Care        1.04   1.98    2.45    3.4   5.4 \n5 Private Education    0.341  0.974   1.8     2.6   3.64"
+  },
+  {
+    "objectID": "index.html#hello-gt",
+    "href": "index.html#hello-gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Hello, gt!",
+    "text": "Hello, gt!\n\nlibrary(gt)\n\nupe_original |&gt; \n  gt()\n\n\n\n\n\n  \n    \n    \n      categories\n      1940\n      1945\n      1950\n      1955\n      1960\n    \n  \n  \n    Food and Tobacco\n22.200\n44.500\n59.60\n73.2\n86.80\n    Household Operation\n10.500\n15.500\n29.00\n36.5\n46.20\n    Medical and Health\n3.530\n5.760\n9.71\n14.0\n21.10\n    Personal Care\n1.040\n1.980\n2.45\n3.4\n5.40\n    Private Education\n0.341\n0.974\n1.80\n2.6\n3.64"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-gt-and-gtextras",
+    "href": "index.html#a-heatmap-with-gt-and-gtextras",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with gt and gtExtras",
+    "text": "A heatmap with gt and gtExtras\n\nlibrary(gt)\n\nupe_original |&gt; \n  gt() |&gt; \n  data_color(columns = `1940`:`1960`, \n             palette = c(\"#368990\", \"#F4C659\")) \n\n\n\n\n\n  \n    \n    \n      categories\n      1940\n      1945\n      1950\n      1955\n      1960\n    \n  \n  \n    Food and Tobacco\n22.200\n44.500\n59.60\n73.2\n86.80\n    Household Operation\n10.500\n15.500\n29.00\n36.5\n46.20\n    Medical and Health\n3.530\n5.760\n9.71\n14.0\n21.10\n    Personal Care\n1.040\n1.980\n2.45\n3.4\n5.40\n    Private Education\n0.341\n0.974\n1.80\n2.6\n3.64"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-gt",
+    "href": "index.html#a-heatmap-with-gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with gt",
+    "text": "A heatmap with gt\n\nlibrary(gt)\n\nupe_original |&gt;\n  gt(rowname_col = \"categories\") |&gt;\n  data_color(columns = `1940`:`1960`, \n             palette = c(\"#368990\", \"#F4C659\")) |&gt; \n  fmt_currency(`1940`:`1960`)\n\n\n\n\n\n  \n    \n    \n      \n      1940\n      1945\n      1950\n      1955\n      1960\n    \n  \n  \n    Food and Tobacco\n$22.20\n$44.50\n$59.60\n$73.20\n$86.80\n    Household Operation\n$10.50\n$15.50\n$29.00\n$36.50\n$46.20\n    Medical and Health\n$3.53\n$5.76\n$9.71\n$14.00\n$21.10\n    Personal Care\n$1.04\n$1.98\n$2.45\n$3.40\n$5.40\n    Private Education\n$0.34\n$0.97\n$1.80\n$2.60\n$3.64"
+  },
+  {
+    "objectID": "index.html#a-heatmap-with-gt-and-gtextras-1",
+    "href": "index.html#a-heatmap-with-gt-and-gtextras-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "A heatmap with gt and gtExtras",
+    "text": "A heatmap with gt and gtExtras\n\nlibrary(gt)\n\nupe_original |&gt;\n  gt(rowname_col = \"categories\") |&gt;\n  data_color(\n    columns = `1940`:`1960`,\n    palette = c(\"#368990\", \"#F4C659\")) |&gt; \n  fmt_currency(`1940`:`1960`) |&gt; \n  tab_header(title = \"United States Personal Expenditures\",\n             subtitle = \"(in billions of dollars)\")\n\n\n\n\n\n  \n    \n      United States Personal Expenditures\n    \n    \n      (in billions of dollars)\n    \n    \n      \n      1940\n      1945\n      1950\n      1955\n      1960\n    \n  \n  \n    Food and Tobacco\n$22.20\n$44.50\n$59.60\n$73.20\n$86.80\n    Household Operation\n$10.50\n$15.50\n$29.00\n$36.50\n$46.20\n    Medical and Health\n$3.53\n$5.76\n$9.71\n$14.00\n$21.10\n    Personal Care\n$1.04\n$1.98\n$2.45\n$3.40\n$5.40\n    Private Education\n$0.34\n$0.97\n$1.80\n$2.60\n$3.64"
+  },
+  {
+    "objectID": "index.html#sparklines-1",
+    "href": "index.html#sparklines-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines",
+    "text": "Sparklines"
+  },
+  {
+    "objectID": "index.html#sparklines-with-ggplot2",
+    "href": "index.html#sparklines-with-ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with ggplot2",
+    "text": "Sparklines with ggplot2\n\nglimpse(ca_np)\n\nRows: 789\nColumns: 7\n$ region    &lt;chr&gt; \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", \"PW\", …\n$ state     &lt;chr&gt; \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", \"CA\", …\n$ code      &lt;chr&gt; \"CHIS\", \"CHIS\", \"CHIS\", \"CHIS\", \"CHIS\", \"CHIS\", \"CHIS\", \"CHI…\n$ park_name &lt;chr&gt; \"Channel Islands National Park\", \"Channel Islands National P…\n$ type      &lt;chr&gt; \"National Park\", \"National Park\", \"National Park\", \"National…\n$ visitors  &lt;dbl&gt; 1200, 1500, 1600, 300, 15700, 31000, 33100, 32000, 24400, 31…\n$ year      &lt;dbl&gt; 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, …"
+  },
+  {
+    "objectID": "index.html#sparklines-with-ggplot2-1",
+    "href": "index.html#sparklines-with-ggplot2-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with ggplot2",
+    "text": "Sparklines with ggplot2\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nggplot(data = ca_np) +\n  geom_line(aes(x = year, \n                y = visitors))"
+  },
+  {
+    "objectID": "index.html#sparklines-with-ggplot2-2",
+    "href": "index.html#sparklines-with-ggplot2-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with ggplot2",
+    "text": "Sparklines with ggplot2\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\nggplot(data = ca_np) +\n  geom_line(aes(x = year, \n                y = visitors, \n                group = park_name))"
+  },
+  {
+    "objectID": "index.html#sparklines-with-ggplot2-3",
+    "href": "index.html#sparklines-with-ggplot2-3",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with ggplot2",
+    "text": "Sparklines with ggplot2\n\nggplot(data = ca_np) +\n  geom_line(aes(x = year, \n                y = visitors, \n                group = park_name)) +\n  facet_wrap(park_name ~ .)"
+  },
+  {
+    "objectID": "index.html#hello-gtextras",
+    "href": "index.html#hello-gtextras",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Hello, gtExtras!",
+    "text": "Hello, gtExtras!\n\n\n\n7 themes that style almost every element of a gt table\nHelper functions for aligning/padding numbers, adding fontawesome icons, images, highlighting, and more\n12 plotting functions for inline sparklines, win-loss charts, and more\n\n…and way more!"
+  },
+  {
+    "objectID": "index.html#sparklines-with-gt",
+    "href": "index.html#sparklines-with-gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with gt",
+    "text": "Sparklines with gt\n\nlibrary(gt)\nlibrary(gtExtras)\n\nca_np |&gt;\n  gt()\n\n\n\n\n\n  \n    \n    \n      region\n      state\n      code\n      park_name\n      type\n      visitors\n      year\n    \n  \n  \n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n1200\n1963\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n1500\n1964\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n1600\n1965\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n300\n1966\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n15700\n1967\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n31000\n1968\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n33100\n1969\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n32000\n1970\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n24400\n1971\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n31947\n1972\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n44700\n1973\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n31000\n1974\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n74400\n1975\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n92600\n1976\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n87200\n1977\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n46416\n1978\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n82937\n1979\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n104574\n1980\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n87514\n1981\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n172287\n1982\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n205024\n1983\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n203411\n1984\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n164132\n1985\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n172913\n1986\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n174607\n1987\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n168592\n1988\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n152662\n1989\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n144083\n1990\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n149263\n1991\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n169181\n1992\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n184867\n1993\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n175226\n1994\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n525882\n1995\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n490715\n1996\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n488757\n1997\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n574270\n1998\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n607057\n1999\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n482571\n2000\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n520428\n2001\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n613935\n2002\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n585919\n2003\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n537716\n2004\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n434107\n2005\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n375256\n2006\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n360806\n2007\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n332177\n2008\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n348745\n2009\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n277515\n2010\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n242756\n2011\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n249594\n2012\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n212029\n2013\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n342161\n2014\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n324816\n2015\n    PW\nCA\nCHIS\nChannel Islands National Park\nNational Park\n364807\n2016\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n9970\n1933\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n19678\n1934\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n42061\n1935\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n40815\n1936\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n48874\n1937\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n58320\n1938\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n61301\n1939\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n80842\n1940\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n100829\n1941\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n44755\n1942\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n14374\n1943\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n13661\n1944\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n31112\n1945\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n100976\n1946\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n161953\n1947\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n162150\n1948\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n208557\n1949\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n189045\n1950\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n219520\n1951\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n296106\n1952\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n338899\n1953\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n337900\n1954\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n342200\n1955\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n300100\n1956\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n333400\n1957\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n334300\n1958\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n335700\n1959\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n355900\n1960\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n397900\n1961\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n363400\n1962\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n408100\n1963\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n403600\n1964\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n453000\n1965\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n437800\n1966\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n476700\n1967\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n469600\n1968\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n458800\n1969\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n580500\n1970\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n290900\n1971\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n293999\n1972\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n315400\n1973\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n368800\n1974\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n545500\n1975\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n582400\n1976\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n620400\n1977\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n673610\n1978\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n631152\n1979\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n618140\n1980\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n630402\n1981\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n679992\n1982\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n635582\n1983\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n621197\n1984\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n576679\n1985\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n586668\n1986\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n665345\n1987\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n692267\n1988\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n664449\n1989\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n690965\n1990\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n743608\n1991\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n869183\n1992\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n998474\n1993\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n971487\n1994\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1109421\n1995\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1189215\n1996\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1188212\n1997\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1177746\n1998\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1227583\n1999\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1179094\n2000\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1014636\n2001\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n897596\n2002\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n890375\n2003\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n764820\n2004\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n800113\n2005\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n744440\n2006\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n704122\n2007\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n871938\n2008\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n828574\n2009\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n984775\n2010\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n946867\n2011\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n984568\n2012\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n951972\n2013\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1101312\n2014\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1154843\n2015\n    PW\nCA\nDEVA\nDeath Valley National Park\nNational Park\n1296283\n2016\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n31285\n1941\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n23691\n1942\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n17414\n1943\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n7640\n1944\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n18275\n1945\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n36605\n1946\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n57801\n1947\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n59157\n1948\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n66991\n1949\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n79129\n1950\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n93615\n1951\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n141416\n1952\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n172423\n1953\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n260700\n1954\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n280600\n1955\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n312900\n1956\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n320300\n1957\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n365300\n1958\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n299600\n1959\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n320100\n1960\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n301500\n1961\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n331500\n1962\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n346300\n1963\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n343400\n1964\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n336000\n1965\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n408600\n1966\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n416500\n1967\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n489400\n1968\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n550300\n1969\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n643000\n1970\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n576000\n1971\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n602752\n1972\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n589600\n1973\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n509900\n1974\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n552200\n1975\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n728900\n1976\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n745600\n1977\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n602453\n1978\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n590543\n1979\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n545357\n1980\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n612966\n1981\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n673201\n1982\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n671426\n1983\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n663798\n1984\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n641172\n1985\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n783224\n1986\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n830085\n1987\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n955246\n1988\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n990214\n1989\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1022396\n1990\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1145458\n1991\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1220539\n1992\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1252401\n1993\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1184871\n1994\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1235702\n1995\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1095046\n1996\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1226273\n1997\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1410312\n1998\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1316340\n1999\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1233935\n2000\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1280917\n2001\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1178376\n2002\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1283346\n2003\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1243659\n2004\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1375111\n2005\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1256421\n2006\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1298979\n2007\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1392446\n2008\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1304471\n2009\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1434976\n2010\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1396237\n2011\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1396117\n2012\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1383340\n2013\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n1589904\n2014\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n2025756\n2015\n    PW\nCA\nJOTR\nJoshua Tree National Park\nNational Park\n2505286\n2016\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1000\n1904\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1000\n1905\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n900\n1906\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1100\n1907\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1773\n1908\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n798\n1909\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1178\n1910\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n2160\n1911\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n2240\n1912\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n2756\n1913\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n3735\n1914\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n10523\n1915\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n15360\n1916\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n17390\n1917\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n15496\n1918\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n21574\n1919\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n19661\n1920\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n30312\n1921\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n50456\n1922\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n46230\n1923\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n35020\n1924\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n40517\n1925\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n50597\n1926\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n47996\n1927\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n51988\n1928\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n44783\n1929\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n43547\n1930\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n51995\n1931\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n40806\n1932\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n50081\n1933\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n66024\n1934\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n116739\n1935\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n148568\n1936\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n157810\n1937\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n148116\n1938\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n161080\n1939\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n201545\n1940\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n173587\n1941\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n97745\n1942\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n60651\n1943\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n35203\n1944\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n82442\n1945\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n221990\n1946\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n236687\n1947\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n279231\n1948\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n294021\n1949\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n337840\n1950\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n450031\n1951\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n448156\n1952\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n435548\n1953\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n551500\n1954\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n556100\n1955\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n669800\n1956\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n638500\n1957\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n683900\n1958\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n718500\n1959\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n759800\n1960\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n748600\n1961\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n826100\n1962\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n778600\n1963\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n831600\n1964\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n848900\n1965\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n923400\n1966\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n909900\n1967\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1064000\n1968\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n946000\n1969\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1019000\n1970\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n887000\n1971\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1051755\n1972\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n899300\n1973\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1216800\n1974\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1031500\n1975\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1127900\n1976\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1041000\n1977\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n864733\n1978\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n804175\n1979\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n819065\n1980\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n776850\n1981\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n831044\n1982\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n765755\n1983\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n937262\n1984\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n874456\n1985\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1028785\n1986\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1081172\n1987\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1007695\n1988\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1037349\n1989\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1062867\n1990\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n1071022\n1991\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n637446\n1992\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n636515\n1993\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n725930\n1994\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n832794\n1995\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n502749\n1996\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n484718\n1997\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n540212\n1998\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n559534\n1999\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n528987\n2000\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n541787\n2001\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n545420\n2002\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n555987\n2003\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n525035\n2004\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n594893\n2005\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n552766\n2006\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n580129\n2007\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n574870\n2008\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n609296\n2009\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n598205\n2010\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n566810\n2011\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n591033\n2012\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n567544\n2013\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n502268\n2014\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n468106\n2015\n    PW\nCA\nKICA\nKings Canyon National Park\nNational Park\n607479\n2016\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n8500\n1917\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n2000\n1918\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n2500\n1919\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n2000\n1920\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n10000\n1921\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n10000\n1922\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n9500\n1923\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n12500\n1924\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n12596\n1925\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n18739\n1926\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n20089\n1927\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n26057\n1928\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n26106\n1929\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n31755\n1930\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n56833\n1931\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n41723\n1932\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n45577\n1933\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n51906\n1934\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n52294\n1935\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n76971\n1936\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n86757\n1937\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n73005\n1938\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n100880\n1939\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n104619\n1940\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n109272\n1941\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n48144\n1942\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n18971\n1943\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n19060\n1944\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n45225\n1945\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n99067\n1946\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n149848\n1947\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n160707\n1948\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n172496\n1949\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n183815\n1950\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n203609\n1951\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n212550\n1952\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n225328\n1953\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n282400\n1954\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n304400\n1955\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n303800\n1956\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n327300\n1957\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n346700\n1958\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n379900\n1959\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n401800\n1960\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n460000\n1961\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n399000\n1962\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n369300\n1963\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n407700\n1964\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n400300\n1965\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n462500\n1966\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n358300\n1967\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n442800\n1968\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n435700\n1969\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n466600\n1970\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n447400\n1971\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n504641\n1972\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n496200\n1973\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n408700\n1974\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n444500\n1975\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n461400\n1976\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n381200\n1977\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n442192\n1978\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n380014\n1979\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n394425\n1980\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n415045\n1981\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n414859\n1982\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n429867\n1983\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n463275\n1984\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n451497\n1985\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n439723\n1986\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n472431\n1987\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n495628\n1988\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n466115\n1989\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n460917\n1990\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n463179\n1991\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n468011\n1992\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n434264\n1993\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n385489\n1994\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n351001\n1995\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n351632\n1996\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n391816\n1997\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n318049\n1998\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n353756\n1999\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n374911\n2000\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n376695\n2001\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n388149\n2002\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n404384\n2003\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n379667\n2004\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n365535\n2005\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n388741\n2006\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n395057\n2007\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n377361\n2008\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n365639\n2009\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n384570\n2010\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n351269\n2011\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n407653\n2012\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n427409\n2013\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n432977\n2014\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n468092\n2015\n    PW\nCA\nLAVO\nLassen Volcanic National Park\nNational Park\n536068\n2016\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n6500\n1923\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n8973\n1924\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n10000\n1925\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n10167\n1926\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n11265\n1927\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n13216\n1928\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n10756\n1929\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n11862\n1930\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n12813\n1931\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n14238\n1932\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n9957\n1933\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n20129\n1934\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n17872\n1935\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n18614\n1936\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n22426\n1937\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n22266\n1938\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n24717\n1939\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n25068\n1940\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n27131\n1941\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n10311\n1942\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n4570\n1943\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n3845\n1944\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n7494\n1945\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n16298\n1946\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n18328\n1947\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n20331\n1948\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n24557\n1949\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n24814\n1950\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n27090\n1951\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n28236\n1952\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n42199\n1953\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n38300\n1954\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n36500\n1955\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n40300\n1956\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n53200\n1957\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n54900\n1958\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n71400\n1959\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n72000\n1960\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n76900\n1961\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n81500\n1962\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n97000\n1963\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n103200\n1964\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n118000\n1965\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n117900\n1966\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n160600\n1967\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n147000\n1968\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n147000\n1969\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n166200\n1970\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n169200\n1971\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n168896\n1972\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n155500\n1973\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n138500\n1974\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n162200\n1975\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n156900\n1976\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n160500\n1977\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n155822\n1978\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n153717\n1979\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n163626\n1980\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n155205\n1981\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n171026\n1982\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n170631\n1983\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n166258\n1984\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n191578\n1985\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n198236\n1986\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n204705\n1987\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n212094\n1988\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n218601\n1989\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n214268\n1990\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n192610\n1991\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n191683\n1992\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n194757\n1993\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n172642\n1994\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n177527\n1995\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n164465\n1996\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n171971\n1997\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n94639\n1998\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n164854\n1999\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n162110\n2000\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n178243\n2001\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n162266\n2002\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n162791\n2003\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n157397\n2004\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n170994\n2005\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n158824\n2006\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n161019\n2007\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n166988\n2008\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n171112\n2009\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n246575\n2010\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n393219\n2011\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n224476\n2012\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n237677\n2013\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n196635\n2014\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n206533\n2015\n    PW\nCA\nPINN\nPinnacles National Park\nNational Park\n215555\n2016\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n34500\n1971\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n104304\n1972\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n210500\n1973\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n297400\n1974\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n368200\n1975\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n421700\n1976\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n477900\n1977\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n448012\n1978\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n413917\n1979\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n471710\n1980\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n549461\n1981\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n467126\n1982\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n473711\n1983\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n467155\n1984\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n505791\n1985\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n567849\n1986\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n610897\n1987\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n677135\n1988\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n654115\n1989\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n348458\n1990\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n366280\n1991\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n387781\n1992\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n421027\n1993\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n475033\n1994\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n552464\n1995\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n426938\n1996\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n382488\n1997\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n383188\n1998\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n369726\n1999\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n383253\n2000\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n388352\n2001\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n404789\n2002\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n408126\n2003\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n392029\n2004\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n394144\n2005\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n383780\n2006\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n385171\n2007\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n396899\n2008\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n444426\n2009\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n418820\n2010\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n380167\n2011\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n352517\n2012\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n393364\n2013\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n429166\n2014\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n527143\n2015\n    PW\nCA\nREDW\nRedwood National Park\nNational Park\n536297\n2016\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n700\n1906\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n900\n1907\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1251\n1908\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n854\n1909\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n2407\n1910\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n3114\n1911\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n2923\n1912\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n3823\n1913\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n4667\n1914\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n7647\n1915\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n10780\n1916\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n18510\n1917\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n15001\n1918\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n30443\n1919\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n31508\n1920\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n28263\n1921\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n27514\n1922\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n30158\n1923\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n34468\n1924\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n46677\n1925\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n89404\n1926\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n100684\n1927\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n98035\n1928\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n111385\n1929\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n129221\n1930\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n143573\n1931\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n131398\n1932\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n126464\n1933\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n147533\n1934\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n205783\n1935\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n230714\n1936\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n243661\n1937\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n260139\n1938\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n275329\n1939\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n282198\n1940\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n302530\n1941\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n154880\n1942\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n62780\n1943\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n54600\n1944\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n137875\n1945\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n315365\n1946\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n373892\n1947\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n403968\n1948\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n367627\n1949\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n379218\n1950\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n452538\n1951\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n472062\n1952\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n501259\n1953\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n484700\n1954\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n518000\n1955\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n538100\n1956\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n535800\n1957\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n512200\n1958\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n547300\n1959\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n610800\n1960\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n610200\n1961\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n687400\n1962\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n631700\n1963\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n654100\n1964\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n877300\n1965\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n797800\n1966\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n746900\n1967\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n874300\n1968\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n919300\n1969\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n875700\n1970\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n878500\n1971\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n867051\n1972\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n845500\n1973\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n686600\n1974\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n957000\n1975\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1040600\n1976\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n978200\n1977\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n973056\n1978\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n799576\n1979\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n862397\n1980\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1083002\n1981\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1020500\n1982\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n854233\n1983\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n979632\n1984\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n939468\n1985\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1056527\n1986\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1139389\n1987\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1031129\n1988\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1056020\n1989\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1063538\n1990\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1120278\n1991\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n961095\n1992\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1066552\n1993\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1034133\n1994\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n844582\n1995\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n838060\n1996\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1008931\n1997\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n861303\n1998\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n873229\n1999\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n838947\n2000\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n870327\n2001\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n920292\n2002\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n979297\n2003\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1000177\n2004\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1004843\n2005\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n954507\n2006\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n979537\n2007\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n930011\n2008\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n965170\n2009\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1002979\n2010\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1006583\n2011\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1106584\n2012\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n909274\n2013\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1039137\n2014\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1097464\n2015\n    PW\nCA\nSEQU\nSequoia National Park\nNational Park\n1254688\n2016\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n5414\n1906\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n7102\n1907\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n8850\n1908\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n13182\n1909\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n13619\n1910\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n12530\n1911\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n10884\n1912\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n13735\n1913\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n15145\n1914\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n33452\n1915\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n33390\n1916\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n34510\n1917\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n33527\n1918\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n58362\n1919\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n68906\n1920\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n91513\n1921\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n100506\n1922\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n130046\n1923\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n105894\n1924\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n209166\n1925\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n274209\n1926\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n490430\n1927\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n460619\n1928\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n461257\n1929\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n458566\n1930\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n461855\n1931\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n498289\n1932\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n296088\n1933\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n309431\n1934\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n372317\n1935\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n431192\n1936\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n481492\n1937\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n443325\n1938\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n466552\n1939\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n506781\n1940\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n597863\n1941\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n319816\n1942\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n116682\n1943\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n120494\n1944\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n290569\n1945\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n640483\n1946\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n777622\n1947\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n745899\n1948\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n808372\n1949\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n820953\n1950\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n858405\n1951\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n973971\n1952\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n969225\n1953\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1008000\n1954\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n984200\n1955\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1114200\n1956\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1138700\n1957\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1139300\n1958\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1061500\n1959\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1150400\n1960\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1227100\n1961\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1505500\n1962\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1473400\n1963\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1547000\n1964\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1635400\n1965\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n1817100\n1966\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2238300\n1967\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2281100\n1968\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2291300\n1969\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2277200\n1970\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2342200\n1971\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2190301\n1972\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2254300\n1973\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2274600\n1974\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2537400\n1975\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2682400\n1976\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2392600\n1977\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2569268\n1978\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2350782\n1979\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2490282\n1980\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2516893\n1981\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2415587\n1982\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2457464\n1983\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2738467\n1984\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2831952\n1985\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n2876717\n1986\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3152275\n1987\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3216681\n1988\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3308159\n1989\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3124939\n1990\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3423101\n1991\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3819518\n1992\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3839645\n1993\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3962117\n1994\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3958406\n1995\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n4046207\n1996\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3669970\n1997\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3657132\n1998\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3493607\n1999\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3400903\n2000\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3368731\n2001\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3361867\n2002\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3378664\n2003\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3280911\n2004\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3304144\n2005\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3242644\n2006\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3503428\n2007\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3431514\n2008\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3737472\n2009\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3901408\n2010\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3951393\n2011\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3853404\n2012\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3691191\n2013\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n3882642\n2014\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n4150217\n2015\n    PW\nCA\nYOSE\nYosemite National Park\nNational Park\n5028868\n2016"
+  },
+  {
+    "objectID": "index.html#sparklines-with-gt-1",
+    "href": "index.html#sparklines-with-gt-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with gt",
+    "text": "Sparklines with gt\n\nlibrary(gt)\nlibrary(gtExtras)\n\nca_np |&gt;\n  dplyr::summarize(visitors_list = list(visitors),\n                   .by = park_name) |&gt;\n  gt() \n\n\n\n\n\n  \n    \n    \n      park_name\n      visitors_list\n    \n  \n  \n    Channel Islands National Park\n1200, 1500, 1600, 300, 15700, 31000, 33100, 32000, 24400, 31947, 44700, 31000, 74400, 92600, 87200, 46416, 82937, 104574, 87514, 172287, 205024, 203411, 164132, 172913, 174607, 168592, 152662, 144083, 149263, 169181, 184867, 175226, 525882, 490715, 488757, 574270, 607057, 482571, 520428, 613935, 585919, 537716, 434107, 375256, 360806, 332177, 348745, 277515, 242756, 249594, 212029, 342161, 324816, 364807\n    Death Valley National Park\n9970, 19678, 42061, 40815, 48874, 58320, 61301, 80842, 100829, 44755, 14374, 13661, 31112, 100976, 161953, 162150, 208557, 189045, 219520, 296106, 338899, 337900, 342200, 300100, 333400, 334300, 335700, 355900, 397900, 363400, 408100, 403600, 453000, 437800, 476700, 469600, 458800, 580500, 290900, 293999, 315400, 368800, 545500, 582400, 620400, 673610, 631152, 618140, 630402, 679992, 635582, 621197, 576679, 586668, 665345, 692267, 664449, 690965, 743608, 869183, 998474, 971487, 1109421, 1189215, 1188212, 1177746, 1227583, 1179094, 1014636, 897596, 890375, 764820, 800113, 744440, 704122, 871938, 828574, 984775, 946867, 984568, 951972, 1101312, 1154843, 1296283\n    Joshua Tree National Park\n31285, 23691, 17414, 7640, 18275, 36605, 57801, 59157, 66991, 79129, 93615, 141416, 172423, 260700, 280600, 312900, 320300, 365300, 299600, 320100, 301500, 331500, 346300, 343400, 336000, 408600, 416500, 489400, 550300, 643000, 576000, 602752, 589600, 509900, 552200, 728900, 745600, 602453, 590543, 545357, 612966, 673201, 671426, 663798, 641172, 783224, 830085, 955246, 990214, 1022396, 1145458, 1220539, 1252401, 1184871, 1235702, 1095046, 1226273, 1410312, 1316340, 1233935, 1280917, 1178376, 1283346, 1243659, 1375111, 1256421, 1298979, 1392446, 1304471, 1434976, 1396237, 1396117, 1383340, 1589904, 2025756, 2505286\n    Kings Canyon National Park\n1000, 1000, 900, 1100, 1773, 798, 1178, 2160, 2240, 2756, 3735, 10523, 15360, 17390, 15496, 21574, 19661, 30312, 50456, 46230, 35020, 40517, 50597, 47996, 51988, 44783, 43547, 51995, 40806, 50081, 66024, 116739, 148568, 157810, 148116, 161080, 201545, 173587, 97745, 60651, 35203, 82442, 221990, 236687, 279231, 294021, 337840, 450031, 448156, 435548, 551500, 556100, 669800, 638500, 683900, 718500, 759800, 748600, 826100, 778600, 831600, 848900, 923400, 909900, 1064000, 946000, 1019000, 887000, 1051755, 899300, 1216800, 1031500, 1127900, 1041000, 864733, 804175, 819065, 776850, 831044, 765755, 937262, 874456, 1028785, 1081172, 1007695, 1037349, 1062867, 1071022, 637446, 636515, 725930, 832794, 502749, 484718, 540212, 559534, 528987, 541787, 545420, 555987, 525035, 594893, 552766, 580129, 574870, 609296, 598205, 566810, 591033, 567544, 502268, 468106, 607479\n    Lassen Volcanic National Park\n8500, 2000, 2500, 2000, 10000, 10000, 9500, 12500, 12596, 18739, 20089, 26057, 26106, 31755, 56833, 41723, 45577, 51906, 52294, 76971, 86757, 73005, 100880, 104619, 109272, 48144, 18971, 19060, 45225, 99067, 149848, 160707, 172496, 183815, 203609, 212550, 225328, 282400, 304400, 303800, 327300, 346700, 379900, 401800, 460000, 399000, 369300, 407700, 400300, 462500, 358300, 442800, 435700, 466600, 447400, 504641, 496200, 408700, 444500, 461400, 381200, 442192, 380014, 394425, 415045, 414859, 429867, 463275, 451497, 439723, 472431, 495628, 466115, 460917, 463179, 468011, 434264, 385489, 351001, 351632, 391816, 318049, 353756, 374911, 376695, 388149, 404384, 379667, 365535, 388741, 395057, 377361, 365639, 384570, 351269, 407653, 427409, 432977, 468092, 536068\n    Pinnacles National Park\n6500, 8973, 10000, 10167, 11265, 13216, 10756, 11862, 12813, 14238, 9957, 20129, 17872, 18614, 22426, 22266, 24717, 25068, 27131, 10311, 4570, 3845, 7494, 16298, 18328, 20331, 24557, 24814, 27090, 28236, 42199, 38300, 36500, 40300, 53200, 54900, 71400, 72000, 76900, 81500, 97000, 103200, 118000, 117900, 160600, 147000, 147000, 166200, 169200, 168896, 155500, 138500, 162200, 156900, 160500, 155822, 153717, 163626, 155205, 171026, 170631, 166258, 191578, 198236, 204705, 212094, 218601, 214268, 192610, 191683, 194757, 172642, 177527, 164465, 171971, 94639, 164854, 162110, 178243, 162266, 162791, 157397, 170994, 158824, 161019, 166988, 171112, 246575, 393219, 224476, 237677, 196635, 206533, 215555\n    Redwood National Park\n34500, 104304, 210500, 297400, 368200, 421700, 477900, 448012, 413917, 471710, 549461, 467126, 473711, 467155, 505791, 567849, 610897, 677135, 654115, 348458, 366280, 387781, 421027, 475033, 552464, 426938, 382488, 383188, 369726, 383253, 388352, 404789, 408126, 392029, 394144, 383780, 385171, 396899, 444426, 418820, 380167, 352517, 393364, 429166, 527143, 536297\n    Sequoia National Park\n700, 900, 1251, 854, 2407, 3114, 2923, 3823, 4667, 7647, 10780, 18510, 15001, 30443, 31508, 28263, 27514, 30158, 34468, 46677, 89404, 100684, 98035, 111385, 129221, 143573, 131398, 126464, 147533, 205783, 230714, 243661, 260139, 275329, 282198, 302530, 154880, 62780, 54600, 137875, 315365, 373892, 403968, 367627, 379218, 452538, 472062, 501259, 484700, 518000, 538100, 535800, 512200, 547300, 610800, 610200, 687400, 631700, 654100, 877300, 797800, 746900, 874300, 919300, 875700, 878500, 867051, 845500, 686600, 957000, 1040600, 978200, 973056, 799576, 862397, 1083002, 1020500, 854233, 979632, 939468, 1056527, 1139389, 1031129, 1056020, 1063538, 1120278, 961095, 1066552, 1034133, 844582, 838060, 1008931, 861303, 873229, 838947, 870327, 920292, 979297, 1000177, 1004843, 954507, 979537, 930011, 965170, 1002979, 1006583, 1106584, 909274, 1039137, 1097464, 1254688\n    Yosemite National Park\n5414, 7102, 8850, 13182, 13619, 12530, 10884, 13735, 15145, 33452, 33390, 34510, 33527, 58362, 68906, 91513, 100506, 130046, 105894, 209166, 274209, 490430, 460619, 461257, 458566, 461855, 498289, 296088, 309431, 372317, 431192, 481492, 443325, 466552, 506781, 597863, 319816, 116682, 120494, 290569, 640483, 777622, 745899, 808372, 820953, 858405, 973971, 969225, 1008000, 984200, 1114200, 1138700, 1139300, 1061500, 1150400, 1227100, 1505500, 1473400, 1547000, 1635400, 1817100, 2238300, 2281100, 2291300, 2277200, 2342200, 2190301, 2254300, 2274600, 2537400, 2682400, 2392600, 2569268, 2350782, 2490282, 2516893, 2415587, 2457464, 2738467, 2831952, 2876717, 3152275, 3216681, 3308159, 3124939, 3423101, 3819518, 3839645, 3962117, 3958406, 4046207, 3669970, 3657132, 3493607, 3400903, 3368731, 3361867, 3378664, 3280911, 3304144, 3242644, 3503428, 3431514, 3737472, 3901408, 3951393, 3853404, 3691191, 3882642, 4150217, 5028868"
+  },
+  {
+    "objectID": "index.html#sparklines-with-gt-2",
+    "href": "index.html#sparklines-with-gt-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Sparklines with gt",
+    "text": "Sparklines with gt\n\n\nlibrary(gt)\nlibrary(gtExtras)\n\nca_np |&gt;\n  dplyr::summarize(visitors_list = list(visitors),\n                   .by = park_name) |&gt;\n  gt() |&gt;\n  gt_plt_sparkline(visitors_list)\n\n\n\n\n\n\n  \n    \n    \n      park_name\n      visitors_list\n    \n  \n  \n    Channel Islands National Park\n          364.8K\n    Death Valley National Park\n          1.3M\n    Joshua Tree National Park\n          2.5M\n    Kings Canyon National Park\n          607.5K\n    Lassen Volcanic National Park\n          536.1K\n    Pinnacles National Park\n          215.6K\n    Redwood National Park\n          536.3K\n    Sequoia National Park\n          1.3M\n    Yosemite National Park\n          5.0M"
+  },
+  {
+    "objectID": "index.html#rept-charts-1",
+    "href": "index.html#rept-charts-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts",
+    "text": "REPT Charts\nAlso known as unit plots, dot plots, etc.."
+  },
+  {
+    "objectID": "index.html#rept-charts-in-ggplot2",
+    "href": "index.html#rept-charts-in-ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts in ggplot2",
+    "text": "REPT Charts in ggplot2\n\nlibrary(ggplot2)\n\nggplot(data = airquality) +\n  geom_dotplot(aes(x = Ozone),\n               dotsize = .75, \n               stackratio = 1.2, \n               fill = \"steelblue\") +\n  theme_minimal() +\n  coord_flip()"
+  },
+  {
+    "objectID": "index.html#rept-charts-in-ggplot2-output",
+    "href": "index.html#rept-charts-in-ggplot2-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts in ggplot2",
+    "text": "REPT Charts in ggplot2"
+  },
+  {
+    "objectID": "index.html#rept-charts-in-gt",
+    "href": "index.html#rept-charts-in-gt",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts in gt",
+    "text": "REPT Charts in gt\n\nlibrary(gt)\nlibrary(gtExtras)\n\ngt(data = mtcars)\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\n6\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\n6\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\n4\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\n6\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\n8\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\n6\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\n8\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\n4\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\n4\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\n6\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\n6\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\n8\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\n8\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\n8\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\n8\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\n8\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\n8\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\n4\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\n4\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\n4\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\n4\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\n8\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\n8\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\n8\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\n8\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\n4\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\n4\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\n4\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\n8\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\n6\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\n8\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\n4\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#rept-charts-in-gt-with-gtextras",
+    "href": "index.html#rept-charts-in-gt-with-gtextras",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts in gt with gtExtras",
+    "text": "REPT Charts in gt with gtExtras\n\nlibrary(gt)\nlibrary(gtExtras)\n\ngt(data = mtcars) |&gt; \n  gt_fa_repeats(column = cyl, \n                name = \"square\")\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nSquare Square Square Square Square Square\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nSquare Square Square Square Square Square\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nSquare Square Square Square\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nSquare Square Square Square Square Square\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nSquare Square Square Square Square Square Square Square\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nSquare Square Square Square Square Square\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nSquare Square Square Square Square Square Square Square\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nSquare Square Square Square\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nSquare Square Square Square\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nSquare Square Square Square Square Square\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nSquare Square Square Square Square Square\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nSquare Square Square Square Square Square Square Square\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nSquare Square Square Square Square Square Square Square\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nSquare Square Square Square Square Square Square Square\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nSquare Square Square Square Square Square Square Square\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nSquare Square Square Square Square Square Square Square\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nSquare Square Square Square Square Square Square Square\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nSquare Square Square Square\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nSquare Square Square Square\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nSquare Square Square Square\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nSquare Square Square Square\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nSquare Square Square Square Square Square Square Square\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nSquare Square Square Square Square Square Square Square\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nSquare Square Square Square Square Square Square Square\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nSquare Square Square Square Square Square Square Square\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nSquare Square Square Square\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nSquare Square Square Square\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nSquare Square Square Square\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nSquare Square Square Square Square Square Square Square\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nSquare Square Square Square Square Square\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nSquare Square Square Square Square Square Square Square\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nSquare Square Square Square\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#rept-charts-in-gt-with-gtextras-1",
+    "href": "index.html#rept-charts-in-gt-with-gtextras-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "REPT Charts in gt with gtExtras",
+    "text": "REPT Charts in gt with gtExtras\n\nlibrary(gt)\nlibrary(gtExtras)\n\ngt(data = mtcars) |&gt; \n  gt_fa_repeats(column = cyl,\n                name = \"car\")\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nCar Car Car Car Car Car\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nCar Car Car Car Car Car\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nCar Car Car Car\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nCar Car Car Car Car Car\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nCar Car Car Car Car Car Car Car\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nCar Car Car Car Car Car\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nCar Car Car Car Car Car Car Car\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nCar Car Car Car\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nCar Car Car Car\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nCar Car Car Car Car Car\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nCar Car Car Car Car Car\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nCar Car Car Car Car Car Car Car\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nCar Car Car Car Car Car Car Car\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nCar Car Car Car Car Car Car Car\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nCar Car Car Car\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nCar Car Car Car\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nCar Car Car Car\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nCar Car Car Car\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nCar Car Car Car Car Car Car Car\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nCar Car Car Car Car Car Car Car\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nCar Car Car Car Car Car Car Car\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nCar Car Car Car Car Car Car Car\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nCar Car Car Car\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nCar Car Car Car\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nCar Car Car Car\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nCar Car Car Car Car Car Car Car\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nCar Car Car Car Car Car\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nCar Car Car Car Car Car Car Car\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nCar Car Car Car\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#data-bars-1",
+    "href": "index.html#data-bars-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars",
+    "text": "Data bars"
+  },
+  {
+    "objectID": "index.html#data-bars-in-ggplot2",
+    "href": "index.html#data-bars-in-ggplot2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in ggplot2",
+    "text": "Data bars in ggplot2\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl)),\n           color = \"black\") +\n  theme(legend.position = \"none\") + \n  labs(title = \"ggplot fill\")"
+  },
+  {
+    "objectID": "index.html#data-bars-in-ggplot2-1",
+    "href": "index.html#data-bars-in-ggplot2-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in ggplot2",
+    "text": "Data bars in ggplot2\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl)),\n           color = \"black\") +\n  theme(legend.position = \"none\") + \n  labs(title = \"ggplot fill\") +\n  coord_flip()"
+  },
+  {
+    "objectID": "index.html#data-bars-in-ggplot2-2",
+    "href": "index.html#data-bars-in-ggplot2-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in ggplot2",
+    "text": "Data bars in ggplot2\n\nlibrary(ggplot2)\n\nggplot(data = mtcars) +\n  geom_bar(aes(x = cyl,\n               fill = as.factor(cyl)),\n           color = \"black\") +\n  theme(legend.position = \"none\") +\n  labs(title = \"ggplot fill\") +\n  coord_flip() +\n  geom_text(\n    stat = \"count\",\n    aes(x = cyl, y = after_stat(count), \n        label = after_stat(count)),\n    hjust = 1.3,\n    color = \"black\",\n    size = 8)"
+  },
+  {
+    "objectID": "index.html#data-bars-in-ggplot2-2-output",
+    "href": "index.html#data-bars-in-ggplot2-2-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in ggplot2",
+    "text": "Data bars in ggplot2"
+  },
+  {
+    "objectID": "index.html#data-bars-in-gt-with-gtextras",
+    "href": "index.html#data-bars-in-gt-with-gtextras",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in gt with gtExtras",
+    "text": "Data bars in gt with gtExtras\n\nmtcars |&gt; \n  gt() |&gt; \n  gt_fa_repeats(cyl, name = \"car\")\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nCar Car Car Car Car Car\n160.0\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nCar Car Car Car Car Car\n160.0\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nCar Car Car Car\n108.0\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nCar Car Car Car Car Car\n258.0\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nCar Car Car Car Car Car Car Car\n360.0\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nCar Car Car Car Car Car\n225.0\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nCar Car Car Car Car Car Car Car\n360.0\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nCar Car Car Car\n146.7\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nCar Car Car Car\n140.8\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nCar Car Car Car Car Car\n167.6\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nCar Car Car Car Car Car\n167.6\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nCar Car Car Car Car Car Car Car\n275.8\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nCar Car Car Car Car Car Car Car\n472.0\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nCar Car Car Car Car Car Car Car\n460.0\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nCar Car Car Car Car Car Car Car\n440.0\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nCar Car Car Car\n78.7\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nCar Car Car Car\n75.7\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nCar Car Car Car\n71.1\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nCar Car Car Car\n120.1\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nCar Car Car Car Car Car Car Car\n318.0\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nCar Car Car Car Car Car Car Car\n304.0\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nCar Car Car Car Car Car Car Car\n350.0\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nCar Car Car Car Car Car Car Car\n400.0\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nCar Car Car Car\n79.0\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nCar Car Car Car\n120.3\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nCar Car Car Car\n95.1\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nCar Car Car Car Car Car Car Car\n351.0\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nCar Car Car Car Car Car\n145.0\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nCar Car Car Car Car Car Car Car\n301.0\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nCar Car Car Car\n121.0\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#data-bars-in-gt-with-gtextras-1",
+    "href": "index.html#data-bars-in-gt-with-gtextras-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in gt with gtExtras",
+    "text": "Data bars in gt with gtExtras\n\nmtcars |&gt; \n  gt() |&gt; \n  gt_fa_repeats(cyl, name = \"car\") |&gt; \n  gt_plt_bar(column = disp)\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nCar Car Car Car Car Car\n          \n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nCar Car Car Car Car Car\n          \n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nCar Car Car Car\n          \n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nCar Car Car Car Car Car\n          \n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nCar Car Car Car Car Car Car Car\n          \n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nCar Car Car Car Car Car\n          \n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nCar Car Car Car Car Car Car Car\n          \n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nCar Car Car Car\n          \n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nCar Car Car Car\n          \n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nCar Car Car Car Car Car\n          \n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nCar Car Car Car Car Car\n          \n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nCar Car Car Car Car Car Car Car\n          \n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nCar Car Car Car Car Car Car Car\n          \n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nCar Car Car Car Car Car Car Car\n          \n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nCar Car Car Car Car Car Car Car\n          \n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nCar Car Car Car Car Car Car Car\n          \n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nCar Car Car Car Car Car Car Car\n          \n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nCar Car Car Car\n          \n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nCar Car Car Car\n          \n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nCar Car Car Car\n          \n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nCar Car Car Car\n          \n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nCar Car Car Car Car Car Car Car\n          \n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nCar Car Car Car Car Car Car Car\n          \n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nCar Car Car Car Car Car Car Car\n          \n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nCar Car Car Car Car Car Car Car\n          \n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nCar Car Car Car\n          \n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nCar Car Car Car\n          \n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nCar Car Car Car\n          \n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nCar Car Car Car Car Car Car Car\n          \n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nCar Car Car Car Car Car\n          \n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nCar Car Car Car Car Car Car Car\n          \n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nCar Car Car Car\n          \n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#data-bars-in-gt-with-gtextras-2",
+    "href": "index.html#data-bars-in-gt-with-gtextras-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in gt with gtExtras",
+    "text": "Data bars in gt with gtExtras\n\nmtcars |&gt; \n  gt() |&gt; \n  gt_fa_repeats(cyl, name = \"car\") |&gt; \n  gt_plt_bar(column = disp,\n             color = \"#871C0F\",\n             scale_type = \"number\") |&gt; \n  gt_plt_bar(column = hp,\n             color = \"#028BA8\",\n             scale_type = \"number\") |&gt; \n  gt_plt_bar(column = drat,\n             color = \"#244E57\",\n             scale_type = \"number\")"
+  },
+  {
+    "objectID": "index.html#data-bars-in-gt-with-gtextras-2-output",
+    "href": "index.html#data-bars-in-gt-with-gtextras-2-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Data bars in gt with gtExtras",
+    "text": "Data bars in gt with gtExtras\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nCar Car Car Car Car Car\n          160\n          110\n          4\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nCar Car Car Car Car Car\n          160\n          110\n          4\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nCar Car Car Car\n          108\n          93\n          4\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nCar Car Car Car Car Car\n          258\n          110\n          3\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nCar Car Car Car Car Car Car Car\n          360\n          175\n          3\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nCar Car Car Car Car Car\n          225\n          105\n          3\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nCar Car Car Car Car Car Car Car\n          360\n          245\n          3\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nCar Car Car Car\n          147\n          62\n          4\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nCar Car Car Car\n          141\n          95\n          4\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nCar Car Car Car Car Car\n          168\n          123\n          4\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nCar Car Car Car Car Car\n          168\n          123\n          4\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nCar Car Car Car Car Car Car Car\n          276\n          180\n          3\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nCar Car Car Car Car Car Car Car\n          276\n          180\n          3\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nCar Car Car Car Car Car Car Car\n          276\n          180\n          3\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nCar Car Car Car Car Car Car Car\n          472\n          205\n          3\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nCar Car Car Car Car Car Car Car\n          460\n          215\n          3\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nCar Car Car Car Car Car Car Car\n          440\n          230\n          3\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nCar Car Car Car\n          79\n          66\n          4\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nCar Car Car Car\n          76\n          52\n          5\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nCar Car Car Car\n          71\n          65\n          4\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nCar Car Car Car\n          120\n          97\n          4\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nCar Car Car Car Car Car Car Car\n          318\n          150\n          3\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nCar Car Car Car Car Car Car Car\n          304\n          150\n          3\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nCar Car Car Car Car Car Car Car\n          350\n          245\n          4\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nCar Car Car Car Car Car Car Car\n          400\n          175\n          3\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nCar Car Car Car\n          79\n          66\n          4\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nCar Car Car Car\n          120\n          91\n          4\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nCar Car Car Car\n          95\n          113\n          4\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nCar Car Car Car Car Car Car Car\n          351\n          264\n          4\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nCar Car Car Car Car Car\n          145\n          175\n          4\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nCar Car Car Car Car Car Car Car\n          301\n          335\n          4\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nCar Car Car Car\n          121\n          109\n          4\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#icon-sets-1",
+    "href": "index.html#icon-sets-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Icon sets",
+    "text": "Icon sets"
+  },
+  {
+    "objectID": "index.html#icon-sets-2",
+    "href": "index.html#icon-sets-2",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Icon sets",
+    "text": "Icon sets\n\nmtcars |&gt; \n  gt() |&gt; \n  gt_fa_repeats(cyl, name = \"car\") |&gt; \n  gt_plt_bar(column = disp) |&gt; \n  gt_fa_rank_change(column = disp,\n                    fa_type = \"arrow\")\n\n\n\n\n\n  \n    \n    \n      mpg\n      cyl\n      disp\n      hp\n      drat\n      wt\n      qsec\n      vs\n      am\n      gear\n      carb\n    \n  \n  \n    21.0\nCar Car Car Car Car Car\n\n  Arrow Up\n  160\n\n110\n3.90\n2.620\n16.46\n0\n1\n4\n4\n    21.0\nCar Car Car Car Car Car\n\n  Arrow Up\n  160\n\n110\n3.90\n2.875\n17.02\n0\n1\n4\n4\n    22.8\nCar Car Car Car\n\n  Arrow Up\n  108\n\n93\n3.85\n2.320\n18.61\n1\n1\n4\n1\n    21.4\nCar Car Car Car Car Car\n\n  Arrow Up\n  258\n\n110\n3.08\n3.215\n19.44\n1\n0\n3\n1\n    18.7\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  360\n\n175\n3.15\n3.440\n17.02\n0\n0\n3\n2\n    18.1\nCar Car Car Car Car Car\n\n  Arrow Up\n  225\n\n105\n2.76\n3.460\n20.22\n1\n0\n3\n1\n    14.3\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  360\n\n245\n3.21\n3.570\n15.84\n0\n0\n3\n4\n    24.4\nCar Car Car Car\n\n  Arrow Up\n  146.7\n\n62\n3.69\n3.190\n20.00\n1\n0\n4\n2\n    22.8\nCar Car Car Car\n\n  Arrow Up\n  140.8\n\n95\n3.92\n3.150\n22.90\n1\n0\n4\n2\n    19.2\nCar Car Car Car Car Car\n\n  Arrow Up\n  167.6\n\n123\n3.92\n3.440\n18.30\n1\n0\n4\n4\n    17.8\nCar Car Car Car Car Car\n\n  Arrow Up\n  167.6\n\n123\n3.92\n3.440\n18.90\n1\n0\n4\n4\n    16.4\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  275.8\n\n180\n3.07\n4.070\n17.40\n0\n0\n3\n3\n    17.3\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  275.8\n\n180\n3.07\n3.730\n17.60\n0\n0\n3\n3\n    15.2\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  275.8\n\n180\n3.07\n3.780\n18.00\n0\n0\n3\n3\n    10.4\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  472\n\n205\n2.93\n5.250\n17.98\n0\n0\n3\n4\n    10.4\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  460\n\n215\n3.00\n5.424\n17.82\n0\n0\n3\n4\n    14.7\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  440\n\n230\n3.23\n5.345\n17.42\n0\n0\n3\n4\n    32.4\nCar Car Car Car\n\n  Arrow Up\n  78.7\n\n66\n4.08\n2.200\n19.47\n1\n1\n4\n1\n    30.4\nCar Car Car Car\n\n  Arrow Up\n  75.7\n\n52\n4.93\n1.615\n18.52\n1\n1\n4\n2\n    33.9\nCar Car Car Car\n\n  Arrow Up\n  71.1\n\n65\n4.22\n1.835\n19.90\n1\n1\n4\n1\n    21.5\nCar Car Car Car\n\n  Arrow Up\n  120.1\n\n97\n3.70\n2.465\n20.01\n1\n0\n3\n1\n    15.5\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  318\n\n150\n2.76\n3.520\n16.87\n0\n0\n3\n2\n    15.2\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  304\n\n150\n3.15\n3.435\n17.30\n0\n0\n3\n2\n    13.3\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  350\n\n245\n3.73\n3.840\n15.41\n0\n0\n3\n4\n    19.2\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  400\n\n175\n3.08\n3.845\n17.05\n0\n0\n3\n2\n    27.3\nCar Car Car Car\n\n  Arrow Up\n  79\n\n66\n4.08\n1.935\n18.90\n1\n1\n4\n1\n    26.0\nCar Car Car Car\n\n  Arrow Up\n  120.3\n\n91\n4.43\n2.140\n16.70\n0\n1\n5\n2\n    30.4\nCar Car Car Car\n\n  Arrow Up\n  95.1\n\n113\n3.77\n1.513\n16.90\n1\n1\n5\n2\n    15.8\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  351\n\n264\n4.22\n3.170\n14.50\n0\n1\n5\n4\n    19.7\nCar Car Car Car Car Car\n\n  Arrow Up\n  145\n\n175\n3.62\n2.770\n15.50\n0\n1\n5\n6\n    15.0\nCar Car Car Car Car Car Car Car\n\n  Arrow Up\n  301\n\n335\n3.54\n3.570\n14.60\n0\n1\n5\n8\n    21.4\nCar Car Car Car\n\n  Arrow Up\n  121\n\n109\n4.11\n2.780\n18.60\n1\n1\n4\n2"
+  },
+  {
+    "objectID": "index.html#wrapping-up",
+    "href": "index.html#wrapping-up",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Wrapping up",
+    "text": "Wrapping up\n\n\n\nGeographical heat map\nImage bar chart\nColor scales\nSparklines\nREPT charts\nData bars\nIcon sets"
+  },
+  {
+    "objectID": "index.html#installing-required-packages",
+    "href": "index.html#installing-required-packages",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Installing required packages",
+    "text": "Installing required packages\nTo run the code in this presentation, please run the following code:\nif (!require(\"pak\")) install.packages(\"pak\")\npak::pkg_install(\"tidyverse\", \"ggpattern\", \"gt\", \"gtExtras\", \"maps\")"
+  },
+  {
+    "objectID": "index.html#create-plots-with-esquiesse",
+    "href": "index.html#create-plots-with-esquiesse",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Create plots with esquiesse",
+    "text": "Create plots with esquiesse"
+  },
+  {
+    "objectID": "index.html#save-output",
+    "href": "index.html#save-output",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Save output",
+    "text": "Save output\nggplot2\nggsave(\n  filename,\n  plot = last_plot(),\n  device = NULL,\n  path = NULL,\n  scale = 1,\n  width = NA,\n  height = NA,\n  units = c(\"in\", \"cm\", \"mm\", \"px\"),\n  dpi = 300,\n  limitsize = TRUE,\n  bg = NULL,\n  ...\n)"
+  },
+  {
+    "objectID": "index.html#save-output-1",
+    "href": "index.html#save-output-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Save output",
+    "text": "Save output\ngt\nas_word(\n  data,\n  align = \"center\",\n  caption_location = c(\"top\", \"bottom\", \"embed\"),\n  caption_align = \"left\",\n  split = FALSE,\n  keep_with_next = TRUE\n)"
+  },
+  {
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Resources",
+    "text": "Resources\nLearning R as an Excel user\n\nHadley Wickham, Mine Çetinkaya-Rundel, & Garrett Grolemund: R for Data Science\nJulie Lowndes & Allison Horst: R for Excel users\nTanya Shapiro: Intro to ggplot2\nJumping Rivers Blog\n\nWorld maps\n\nGeeks for Geeks: How to make a world map with R"
+  },
+  {
+    "objectID": "index.html#resources-1",
+    "href": "index.html#resources-1",
+    "title": "Seven essential Excel data visualization tips",
+    "section": "Resources",
+    "text": "Resources\nHeatmaps\n\nJānis Stūris: How to create a simple heatmap in R\n\nStyling gt\n\nRich Iannone: Color coding your data in {gt} 0.9.0\nTom Mock: Beautiful tables with gt and gtExtras\n\n\n\nhttps://ivelasq.quarto.pub/excel-data-viz-tips-in-r"
+  },
+  {
+    "objectID": "excel-data-viz-tips-in-r.html",
+    "href": "excel-data-viz-tips-in-r.html",
+    "title": "excel-data-viz-tips-in-r",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "excel-data-viz-tips-in-r.html#quarto",
+    "href": "excel-data-viz-tips-in-r.html#quarto",
+    "title": "excel-data-viz-tips-in-r",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  }
+]

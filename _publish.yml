@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 7d0c1b02-8baf-444e-8c74-77437c046873
+      url: 'https://ivelasq.quarto.pub/excel-data-viz-tips-in-r'

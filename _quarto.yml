@@ -1,0 +1,9 @@
+project:
+  title: "excel-data-viz-tips-in-r"
+  type: website
+
+execute:
+  fig-align: "center"
+  echo: true
+  output-location: "slide"
+  warning: false

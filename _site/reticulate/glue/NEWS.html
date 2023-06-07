@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>excel-data-viz-tips-in-r – news</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="glue-1.6.2" class="level1">
+<h1>glue 1.6.2</h1>
+<ul>
+<li>Modify a test for better forward compatibility with R.</li>
+</ul>
+</section>
+<section id="glue-1.6.1" class="level1">
+<h1>glue 1.6.1</h1>
+<ul>
+<li>glue now registers its custom knitr engines in a way that is more robust to namespace-loading edge cases that can arise during package installation (#254).</li>
+</ul>
+</section>
+<section id="glue-1.6.0" class="level1">
+<h1>glue 1.6.0</h1>
+<ul>
+<li><p><code>glue()</code>, <code>glue_data()</code>, <code>glue_col()</code>, and <code>glue_data_col()</code> gain a new <code>.literal</code> argument, which controls how quotes and the comment character are treated when parsing the expression string (#235). This is mostly useful when using a custom transformer.</p></li>
+<li><p>Trailing whitespace-only lines don’t interfere with indentation (#247).</p></li>
+</ul>
+</section>
+<section id="glue-1.5.1" class="level1">
+<h1>glue 1.5.1</h1>
+<ul>
+<li><p>Jennifer Bryan is now the maintainer.</p></li>
+<li><p>The existing custom language engines for knitr, <code>glue</code> and <code>glue_sql</code>, are documented in a new vignette (#71). <em>Detail added after release: glue now sets up registration of these engines in <code>.onLoad()</code>.</em></p></li>
+<li><p><code>glue_col()</code> gives special treatment to styling functions from the crayon package, e.g.&nbsp;<code>glue_col("{blue foo}")</code> “just works” now, even if crayon is not attached (but is installed) (#241).</p></li>
+<li><p>Unterminated backticks trigger the same error as unterminated single or double quotes (#237).</p></li>
+<li><p><code>glue_sql()</code> collapses zero-length <code>DBI::SQL</code> object into <code>DBI::SQL("NULL")</code> (#244 <span class="citation" data-cites="shrektan">@shrektan</span>).</p></li>
+</ul>
+</section>
+<section id="glue-1.5.0" class="level1">
+<h1>glue 1.5.0</h1>
+<section id="breaking-changes" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-changes">Breaking changes</h2>
+<ul>
+<li>Long deprecated function <code>collapse()</code> has been removed (#213)</li>
+</ul>
+</section>
+<section id="new-functions-and-arguments" class="level2">
+<h2 class="anchored" data-anchor-id="new-functions-and-arguments">New functions and arguments</h2>
+<ul>
+<li><p>New <code>glue_sql_collapse()</code> function to collapse inputs and return a <code>DBI::SQL()</code> object (#103).</p></li>
+<li><p><code>glue()</code> gains a new <code>.comment</code> argument, to control the comment character (#193).</p></li>
+<li><p><code>glue()</code> gains a new <code>.null</code> argument, to control the value to replace <code>NULL</code> values with (#217, <span class="citation" data-cites="echasnovski">@echasnovski</span>).</p></li>
+</ul>
+</section>
+<section id="bugfixes-and-minor-changes" class="level2">
+<h2 class="anchored" data-anchor-id="bugfixes-and-minor-changes">Bugfixes and minor changes</h2>
+<ul>
+<li><code>sql_quote_transformer()</code> is now allows whitespace after the trailing <code>*</code> (#218).</li>
+<li><code>compare_proxy.glue()</code> method defined so glue objects can be compared to strings in testthat 3e without errors (#212)</li>
+<li><code>print.glue()</code> no longer prints an empty newline for 0 length inputs (#214)</li>
+<li>Unterminated comments in glue expression now throw an error (#227, <span class="citation" data-cites="gaborcsardi">@gaborcsardi</span>)</li>
+<li>Unterminated quotes in glue expressions now throw an error (#226, <span class="citation" data-cites="gaborcsardi">@gaborcsardi</span>)</li>
+</ul>
+</section>
+</section>
+<section id="glue-1.4.2" class="level1">
+<h1>glue 1.4.2</h1>
+<ul>
+<li><code>glue_safe()</code> gives a slightly nicer error message</li>
+<li>The required version of R is now 3.2 (#189)</li>
+<li><code>glue_sql()</code> now collapses <code>DBI::SQL()</code> elements correctly (#192 <span class="citation" data-cites="shrektan">@shrektan</span>)</li>
+<li>The internal <code>compare()</code> method gains a <code>...</code> argument, for compatibility with testthat 3.0.0</li>
+</ul>
+</section>
+<section id="glue-1.4.1" class="level1">
+<h1>glue 1.4.1</h1>
+<ul>
+<li>Internal changes for compatibility with vctrs 0.3.0 (#187).</li>
+<li><code>glue_sql()</code> now replaces missing values correctly when collapsing values (#185).</li>
+<li><code>glue_sql()</code> now always preserves the type of the column even in the presence of missing values (#130)</li>
+</ul>
+</section>
+<section id="glue-1.4.0" class="level1">
+<h1>glue 1.4.0</h1>
+<ul>
+<li><p><code>.envir = NULL</code> is now supported and is equivalent to passing <code>.envir = emptyenv()</code> (#140)</p></li>
+<li><p>New <code>glue_safe()</code> and <code>glue_data_safe()</code> functions, safer versions of <code>glue()</code> that do not execute code, only look up values (using <code>get()</code>). These alternatives are useful for things like shiny applications where you do not have control of the input for your glue expressions. (#140)</p></li>
+<li><p>Fixed memory access issue and memory leaks found by valgrind.</p></li>
+</ul>
+</section>
+<section id="glue-1.3.2" class="level1">
+<h1>glue 1.3.2</h1>
+<ul>
+<li><p>glue now implements vctrs methods. This ensures that vectors of glue strings are compatible with tidyverse packages like tidyr (r-lib/tidyselect#170, tidyverse/tidyr#773, <span class="citation" data-cites="lionel">@lionel</span>-).</p></li>
+<li><p>Fix a LTO type mismatch warning (#146)</p></li>
+<li><p><code>glue_sql()</code> now quotes lists of values appropriate to their type, rather than coercing all values to characters (#153)</p></li>
+<li><p><code>glue_data()</code> now implicitly coerces <code>.x</code> to a list.</p></li>
+<li><p><code>glue()</code> gains the <code>.trim</code> argument, like <code>glue_data()</code>.</p></li>
+<li><p><code>single_quote()</code> <code>double_quote()</code> and <code>backtick()</code> all return <code>NA</code> for <code>NA</code> inputs (#135).</p></li>
+<li><p>Improve <code>trim()</code>’s handling of lines containing only indentation (#162, #163, <span class="citation" data-cites="alandipert">@alandipert</span>)</p></li>
+</ul>
+</section>
+<section id="glue-1.3.1" class="level1">
+<h1>glue 1.3.1</h1>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<ul>
+<li><code>glue()</code> now has a <code>+</code> method to combine strings.</li>
+<li><code>glue_sql()</code> now collapses zero-length vector into <code>DBI::SQL("NULL")</code> (#134 <span class="citation" data-cites="shrektan">@shrektan</span>).</li>
+</ul>
+</section>
+<section id="bugfixes-and-minor-changes-1" class="level2">
+<h2 class="anchored" data-anchor-id="bugfixes-and-minor-changes-1">Bugfixes and minor changes</h2>
+<ul>
+<li><code>glue_sql()</code> now supports unquoting lists of Id objects.</li>
+<li><code>glue_sql()</code> now quotes characters with NAs appropriately (#115).</li>
+<li><code>glue_sql()</code> now quotes Dates appropriately (#98).</li>
+<li>A potential protection error reported by rchk was fixed.</li>
+</ul>
+</section>
+</section>
+<section id="glue-1.3.0" class="level1">
+<h1>glue 1.3.0</h1>
+<section id="breaking-changes-1" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-changes-1">Breaking changes</h2>
+<ul>
+<li><p>The <code>evaluate()</code> function has been removed. Changes elsewhere in glue made the implementation trivial so it was removed for the sake of clarity. Previous uses can be replaced by <code>eval(parse(text = text), envir)</code>.</p></li>
+<li><p><code>collapse()</code> has been renamed to <code>glue_collapse()</code> to avoid namespace collisions with <code>dplyr::collapse()</code>.</p></li>
+</ul>
+</section>
+<section id="features-1" class="level2">
+<h2 class="anchored" data-anchor-id="features-1">Features</h2>
+<ul>
+<li><p><code>compare.glue()</code> was added, to make it easier to use glue objects in <code>testthat::expect_equal()</code> statements.</p></li>
+<li><p><code>glue_col()</code> and <code>glue_data_col()</code> functions added to display strings with color.</p></li>
+</ul>
+</section>
+<section id="bugfixes-and-minor-changes-2" class="level2">
+<h2 class="anchored" data-anchor-id="bugfixes-and-minor-changes-2">Bugfixes and minor changes</h2>
+<ul>
+<li><p>Glue now throws an informative error message when it cannot interpolate a function into a string (#114, <span class="citation" data-cites="haleyjeppson">@haleyjeppson</span> &amp; <span class="citation" data-cites="ijlyttle">@ijlyttle</span>).</p></li>
+<li><p>Glue now evaluates unnamed arguments lazily with <code>delayedAssign()</code>, so there is no performance cost if an argument is not used. (#83, <span class="citation" data-cites="egnha">@egnha</span>).</p></li>
+<li><p>Fixed a bug where names in the assigned expression of an interpolation variable would conflict with the name of the variable itself (#89, <span class="citation" data-cites="egnha">@egnha</span>).</p></li>
+<li><p>Do not drop the <code>glue</code> class when subsetting (#66).</p></li>
+<li><p>Fix <code>glue()</code> and <code>collapse()</code> always return UTF-8 encoded strings (#81, <span class="citation" data-cites="dpprdan">@dpprdan</span>)</p></li>
+</ul>
+</section>
+</section>
+<section id="glue-1.2.0" class="level1">
+<h1>glue 1.2.0</h1>
+<ul>
+<li><p>The implementation has been tweaked to be slightly faster in most cases.</p></li>
+<li><p><code>glue()</code> now has a <code>.transformer</code> argument, which allows you to use custom logic on how to evaluate the code within glue blocks. See <code>vignette("transformers")</code> for more details and example transformer functions.</p></li>
+<li><p><code>glue()</code> now returns <code>NA</code> if any of the results are <code>NA</code> and <code>.na</code> is <code>NULL</code>. Otherwise <code>NA</code> values are replaced by the value of <code>.na</code>.</p></li>
+<li><p><code>trim()</code> to use the trimming logic from glue is now exported.</p></li>
+<li><p><code>glue_sql()</code> and <code>glue_data_sql()</code> functions added to make constructing SQL statements with glue safer and easier.</p></li>
+<li><p><code>glue()</code> is now easier to use when used within helper functions such as <code>lapply</code>.</p></li>
+<li><p>Fix when last expression in <code>glue()</code> is NULL.</p></li>
+</ul>
+</section>
+<section id="glue-1.1.1" class="level1">
+<h1>glue 1.1.1</h1>
+<ul>
+<li>Another fix for PROTECT / REPROTECT found by the rchk static analyzer.</li>
+</ul>
+</section>
+<section id="glue-1.1.0" class="level1">
+<h1>glue 1.1.0</h1>
+<ul>
+<li><p>Fix for PROTECT errors when resizing output strings.</p></li>
+<li><p><code>glue()</code> always returns ‘UTF-8’ strings, converting inputs if in other encodings if needed.</p></li>
+<li><p><code>to()</code> and <code>to_data()</code> have been removed.</p></li>
+<li><p><code>glue()</code> and <code>glue_data()</code> can now take alternative delimiters to <code>{</code> and <code>}</code>. This is useful if you are writing to a format that uses a lot of braces, such as LaTeX. (#23)</p></li>
+<li><p><code>collapse()</code> now returns 0 length output if given 0 length input (#28).</p></li>
+</ul>
+</section>
+<section id="glue-0.0.0.9000" class="level1">
+<h1>glue 0.0.0.9000</h1>
+<ul>
+<li><p>Fix <code>glue()</code> to admit <code>.</code> as an embedded expression in a string (#15, <span class="citation" data-cites="egnha">@egnha</span>).</p></li>
+<li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

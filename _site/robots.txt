@@ -1,0 +1,1 @@
+Sitemap: https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/sitemap.xml

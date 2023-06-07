@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>excel-data-viz-tips-in-r - Developing Patterns</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Developing Patterns</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpattern"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="developing-patterns---overview" class="level2">
+<h2 class="anchored" data-anchor-id="developing-patterns---overview">Developing Patterns - overview</h2>
+<p>To develop a pattern for use with <code>{ggpattern}</code> (and any other packages that use <code>{gridpattern}</code>) you will need to:</p>
+<ol type="1">
+<li>Decide whether this is a geometry-based pattern or an array-based pattern.</li>
+<li>Create a function with the required arguments and return value</li>
+<li>Use <code>options()</code> to let <code>{gridpattern}</code> know that a certain pattern name should be delegated to your function.</li>
+</ol>
+<p>This vignette shows how to:</p>
+<ul>
+<li>write a <code>create_pattern()</code> function of the correct signature for a geometry-based pattern or array-based pattern</li>
+<li>Instruct <code>{ggpattern}</code> on where to find this user-defined pattern</li>
+</ul>
+<section id="table-of-contents" class="level3">
+<h3 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="#classes">The two pattern classes</a></li>
+<li><a href="#aes">List of all pattern aesthetics</a></li>
+<li><a href="#aes-by-pattern">Aesthetic use by <code>{ggpattern}</code> patterns</a></li>
+<li><a href="#geometry-based">Geometry-based pattern functions</a></li>
+<li><a href="#array-based">Array-based pattern functions</a></li>
+<li><a href="#geometry-example-1">Example: multiple colored stripes (serializing aesthetics)</a></li>
+<li><a href="#geometry-example-2">Example: Three-color polygon tilings (adapting <code>{ggplot2}</code> aesthetics)</a></li>
+<li><a href="#other-example">Other examples</a></li>
+</ul>
+</section>
+</section>
+<section id="pattern-classification---geometry-based-and-array-based" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-classification---geometry-based-and-array-based"><a name="classes"></a> Pattern Classification - geometry-based and array-based</h2>
+<p>There are only 2 high-level classes of pattern supported by <code>gridpattern</code> - geometry-based and array-based.</p>
+<p><strong>Geometry-based</strong> patterns create a series of geometry objects and trim them (using <code>sf::st_intersection()</code>, <code>gridGeometry::polyclipGrob()</code>, <code>gridpattern::alphaMaskGrob()</code>, etc) to be within the boundary of the grob. For example, the ‘stripes’ pattern in <code>gridpattern</code> is a series of equally spaced rectangular polygons.</p>
+<p><strong>Array-based</strong> patterns are RGBA image arrays. Any supplied image will be processed by <code>gridpattern</code> to ensure it is masked to only apply to the area within the grob’s boundary.</p>
+</section>
+<section id="ggpattern-aesthetics---descriptions-and-defaults" class="level2">
+<h2 class="anchored" data-anchor-id="ggpattern-aesthetics---descriptions-and-defaults"><a name="aes"></a> <code>{ggpattern}</code> Aesthetics - Descriptions and Defaults</h2>
+<p>Although custom <code>{gridpattern}</code> pattern parameters need not limit itself to the set of aesthetics provided by <code>{ggpattern}</code> doing so may make your pattern more useful for others:</p>
+<details open="true">
+<summary>
+<code>{ggpattern}</code> aesthetic summary - click to open/close
+</summary>
+<table class="table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 38%">
+<col style="width: 9%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>aesthetic</th>
+<th>description</th>
+<th>default</th>
+<th>possible values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pattern</code></td>
+<td>Name of the pattern to draw</td>
+<td>‘stripe’</td>
+<td><code>gridpattern::names_pattern</code></td>
+</tr>
+<tr class="even">
+<td><code>pattern_alpha</code></td>
+<td>Alpha</td>
+<td>1</td>
+<td>value in range [0, 1] or <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_angle</code></td>
+<td>Rotation angle (entire pattern)</td>
+<td>30</td>
+<td>angle in degrees</td>
+</tr>
+<tr class="even">
+<td><code>pattern_aspect_ratio</code></td>
+<td>Aspect ratio adjustment</td>
+<td>NA</td>
+<td>usual range [0.01, 10]</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_colour</code></td>
+<td>Stroke colour</td>
+<td>‘grey20’</td>
+<td>colour</td>
+</tr>
+<tr class="even">
+<td><code>pattern_density</code></td>
+<td>Approx. fraction of area the pattern fills</td>
+<td>0.2</td>
+<td>value in range [0, 1]</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_filename</code></td>
+<td>Image filename/URL</td>
+<td>’’</td>
+<td>Filename/URL</td>
+</tr>
+<tr class="even">
+<td><code>pattern_fill2</code></td>
+<td>Second fill colour</td>
+<td>‘#4169E1’</td>
+<td>colour</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_fill</code></td>
+<td>Fill colour</td>
+<td>‘grey80’</td>
+<td>colour</td>
+</tr>
+<tr class="even">
+<td><code>pattern_filter</code></td>
+<td>Image scaling filter</td>
+<td>‘lanczos’</td>
+<td><code>magick::filter_types</code></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_frequency</code></td>
+<td>Frequency</td>
+<td>0.1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>pattern_gravity</code></td>
+<td>Image placement</td>
+<td>‘center’</td>
+<td><code>magick::gravity_types</code></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_grid</code></td>
+<td>Pattern grid type</td>
+<td>‘square’</td>
+<td>‘square’, ‘hex’, ‘hex_circle’</td>
+</tr>
+<tr class="even">
+<td><code>pattern_key_scale_factor</code></td>
+<td>Scale factor for pattern in legend</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_linetype</code></td>
+<td>Stroke linetype</td>
+<td>1</td>
+<td>linetype</td>
+</tr>
+<tr class="even">
+<td><code>pattern_option_1 - 5</code></td>
+<td>Generic options for expansion</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_orientation</code></td>
+<td>Orientation</td>
+<td>‘vertical’</td>
+<td>‘vertical’, ‘horizontal’, ‘radial’</td>
+</tr>
+<tr class="even">
+<td><code>pattern_phase</code></td>
+<td>Phase</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>pattern_res</code></td>
+<td>Pattern resolution (pixels per inch)</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>pattern_rot</code></td>
+<td>Rotation angle (shape within pattern)</td>
+<td>0</td>
+<td>angle in degrees</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_scale</code></td>
+<td>Scale</td>
+<td>1</td>
+<td>Multiplier</td>
+</tr>
+<tr class="even">
+<td><code>pattern_shape</code></td>
+<td>Plotting shape</td>
+<td>1</td>
+<td>shapes</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_size</code></td>
+<td>Stroke linewidth</td>
+<td>1</td>
+<td>linewidth</td>
+</tr>
+<tr class="even">
+<td><code>pattern_spacing</code></td>
+<td>Spacing between repetitions of pattern</td>
+<td>0.05</td>
+<td>value in range [0, 1] (snpc units)</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_subtype</code></td>
+<td>Generic control option</td>
+<td>NA</td>
+<td>pattern-dependent</td>
+</tr>
+<tr class="even">
+<td><code>pattern_type</code></td>
+<td>Generic control option</td>
+<td>NA</td>
+<td>pattern-dependent</td>
+</tr>
+<tr class="odd">
+<td><code>pattern_xoffset</code></td>
+<td>Shift pattern along x axis</td>
+<td>0</td>
+<td>value in range [0, 1] (snpc units)</td>
+</tr>
+<tr class="even">
+<td><code>pattern_yoffset</code></td>
+<td>Shift pattern along y axis</td>
+<td>0</td>
+<td>value in range [0, 1] (snpc units)</td>
+</tr>
+</tbody>
+</table>
+
+</details>
+<p>Note <code>{ggpattern}</code> may also pass other geom aesthetics of possible interest such as <code>fill</code>. Also note that <code>{ggpattern}</code> will only pass pattern aesthetics values of length one but if the pattern is called directly by <code>gridpattern::patternGrob()</code> then the pattern may be passed pattern parameters of arbitrary length.</p>
+</section>
+<section id="geometry-based-pattern-functions---formal-arguments-and-return-values" class="level2">
+<h2 class="anchored" data-anchor-id="geometry-based-pattern-functions---formal-arguments-and-return-values"><a name="geometry-based"></a> Geometry-based pattern functions - Formal Arguments and Return Values</h2>
+<p>All geometry-based pattern creation functions must:</p>
+<ol type="1">
+<li><p>Have the exact function signature: <code>function(params, boundary_df, aspect_ratio, legend)</code></p>
+<ul>
+<li><code>params</code> - parameters for the pattern (the aesthetics) e.g <code>pattern_fill</code></li>
+<li><code>boundary_df</code> - data.frame containing polygon information i.e.&nbsp;The <code>polygon_df</code> format.</li>
+<li><code>aspect_ratio</code> - the best guess that <code>{gridpattern}</code> / <code>{ggpattern}</code> is able to make as to the aspect ratio of the <strong>viewport</strong> in which this pattern is being rendered.</li>
+<li><code>legend</code> logical value to indicate whether or not this function is being called to render a key legend or the in-place geom fill.</li>
+</ul></li>
+<li><p>Return a grid grob object. This can be any valid grob including a <code>grid::grobTree()</code>. The user should make sure it lies within the boundary represented by <code>boundary_df</code> either by clipping with functions like <code>sf::st_intersection()</code>, <code>gridGeometry::polyclipGrob()</code>, <code>gridpattern::alphaMaskGrob()</code>, etc. or using bounded grob functions like <code>gridpattern::patternGrob()</code> or <code>grid::polygonGrob()</code>.</p></li>
+</ol>
+</section>
+<section id="array-based-pattern-functions---formal-arguments-and-return-values" class="level2">
+<h2 class="anchored" data-anchor-id="array-based-pattern-functions---formal-arguments-and-return-values"><a name="array-based"></a> Array-based pattern functions - Formal Arguments and Return Values</h2>
+<p>All array-based pattern creation functions must:</p>
+<ol type="1">
+<li>Have the exact function signature: <code>function(width, height, params, legend)</code>
+<ul>
+<li><code>width,height</code> - dimensions of the bounding box of the geom area</li>
+<li><code>params</code> - parameters from the geom (the aesthetics) e.g <code>pattern_fill</code></li>
+<li><code>legend</code> logical value to indicate whether or not this function is being called to render a key legend or the in-place geom fill.</li>
+</ul></li>
+<li>Return a 3D array of RGBA values (all values in the range [0, 1]). <code>gridpattern</code> itself will mask this image so that it only applies to the area within the grob’s boundary.</li>
+</ol>
+</section>
+<section id="the-polygon_df-data.frame-format" class="level2">
+<h2 class="anchored" data-anchor-id="the-polygon_df-data.frame-format"><a name="polygon_df"></a> The <code>polygon_df</code> data.frame format</h2>
+<p>The <code>polygon_df</code> is a very simple data.frame format to contain polygon values. This is used to pass the coordinates of the geom boundary from the geom to the pattern generating function.</p>
+<p>It contains only ‘x’ and ‘y’ columns for the coordinates, and an ‘id’ column used to signify which polygon the coordinates belong to.</p>
+<p>The following <code>polygon_df</code> data.frame contains 2 polygons:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>example data in ‘polygon_df’ format</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+<th style="text-align: right;">y</th>
+<th style="text-align: right;">id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="associating-a-function-with-gridpattern-pattern-name" class="level2">
+<h2 class="anchored" data-anchor-id="associating-a-function-with-gridpattern-pattern-name"><a name="user-funcs"></a> Associating a function with <code>{gridpattern}</code> pattern name</h2>
+<p>There are two global <code>option()</code> values which can be set - one for geometry-based patterns, and the other for array-based patterns.</p>
+<p>The global values should point to a named list, where the names are the pattern names you want to use within <code>{gridpattern}</code>, and the named values are the actual functions. Note for backwards-compatibility with the original <code>{ggpattern}</code> system these options start with <code>ggpattern</code> instead of <code>gridpattern</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggpattern_array_funcs    =</span> <span class="fu">list</span>(<span class="at">your_pattern_name =</span> your_pattern_function))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggpattern_geometry_funcs =</span> <span class="fu">list</span>(<span class="at">your_pattern_name =</span> your_pattern_function))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pattern names must be different from any of the builtin patterns included in <code>{gridpattern}</code>.</p>
+</section>
+<section id="example-multiple-colored-stripes-serializing-aesthetics" class="level2">
+<h2 class="anchored" data-anchor-id="example-multiple-colored-stripes-serializing-aesthetics"><a name="geometry-example-1"></a> Example: Multiple colored stripes (serializing aesthetics)</h2>
+<p>All geometry-based pattern creation functions must:</p>
+<ol type="1">
+<li>Have the exact function signature: <code>function(params, boundary_df, aspect_ratio, legend)</code>
+<ul>
+<li><code>params</code> - parameters from the geom (the aesthetics) e.g <code>pattern_fill</code></li>
+<li><code>boundary_df</code> - data.frame containing polygon information i.e.&nbsp;The <code>polygon_df</code> format.</li>
+<li><code>aspect_ratio</code> - the best guess that <code>{gridpattern}</code> / <code>{ggpattern}</code> is able to make as to the aspect ratio of the <strong>viewport</strong> in which this pattern is being rendered.</li>
+<li><code>legend</code> logical value to indicate whether or not this function is being called to render a key legend or the in-place geom fill.</li>
+</ul></li>
+<li>Return a grid grob bounded by the boundary represented by <code>boundary_df</code> (including grid structures like a <code>grid::grobTree()</code>).</li>
+</ol>
+<p>Since <code>{ggplot2}</code> only allows single-valued aesthetics you can only normally create single-colored stripe patterns in <code>{ggpattern}</code> even though the underlying <code>{gridpattern}</code> stripe pattern supports multiple-colored stripes. In this example we’ll create a ‘multicolor_stripe’ pattern that serializes multiple <code>pattern_colour</code> and <code>pattern_fill</code> colors using comma-separated values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>multicolor_stripe_pattern <span class="ot">&lt;-</span> <span class="cf">function</span>(params, boundary_df, aspect_ratio, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">legend =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    args <span class="ot">&lt;-</span> <span class="fu">as.list</span>(params)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    args <span class="ot">&lt;-</span> args[<span class="fu">grep</span>(<span class="st">"^pattern_"</span>, <span class="fu">names</span>(args))]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>pattern_colour <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(args<span class="sc">$</span>pattern_colour, <span class="st">","</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>pattern_fill <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(args<span class="sc">$</span>pattern_fill, <span class="st">","</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>pattern <span class="ot">&lt;-</span> <span class="st">"stripe"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>x <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>x</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>y <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>y</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>id <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>id</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>prefix <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(gridpattern<span class="sc">::</span>patternGrob, args)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A global option <code>ggpattern_geometry_funcs</code> is a named list which contains geometry-based pattern creating functions to use outside of <code>ggpattern</code>.</p>
+<p>The <strong>name</strong> used in this list corresponds to the <code>pattern</code> name used with the geom - in this case we will be using <code>pattern = 'polygon'</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggpattern_geometry_funcs =</span> <span class="fu">list</span>(<span class="at">multicolor_stripe =</span> multicolor_stripe_pattern))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">outcome =</span> <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">1.9</span>, <span class="fl">3.2</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(trt, outcome)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col_pattern</span>(<span class="fu">aes</span>(<span class="at">fill =</span> trt), <span class="at">colour =</span> <span class="st">'black'</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern =</span> <span class="st">'multicolor_stripe'</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern_fill =</span> <span class="st">"grey30,grey70,white,grey70"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern_density =</span> <span class="fl">0.2</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern_spacing =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">'cm'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="developing-patterns_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="example-three-color-polygon-tilings-adapting-ggplot2-aesthetics" class="level2">
+<h2 class="anchored" data-anchor-id="example-three-color-polygon-tilings-adapting-ggplot2-aesthetics"><a name="geometry-example-2"></a> Example: Three-color polygon tilings (adapting <code>{ggplot2}</code> aesthetics)</h2>
+<p>All geometry-based pattern creation functions must:</p>
+<ol type="1">
+<li>Have the exact function signature: <code>function(params, boundary_df, aspect_ratio, legend)</code>
+<ul>
+<li><code>params</code> - parameters from the geom (the aesthetics) e.g <code>pattern_fill</code></li>
+<li><code>boundary_df</code> - data.frame containing polygon information i.e.&nbsp;The <code>polygon_df</code> format.</li>
+<li><code>aspect_ratio</code> - the best guess that <code>{gridpattern}</code> / <code>{ggpattern}</code> is able to make as to the aspect ratio of the <strong>viewport</strong> in which this pattern is being rendered.</li>
+<li><code>legend</code> logical value to indicate whether or not this function is being called to render a key legend or the in-place geom fill.</li>
+</ul></li>
+<li>Return a grid grob bounded by the boundary represented by <code>boundary_df</code> (including grid structures like a <code>grid::grobTree()</code>).</li>
+</ol>
+<p>For this example we’ll adapt the built-in ‘polygon_tiling’ pattern to create a new ‘tiling3’ pattern that fills the polygon tiling with three colors: the <code>fill</code> aesthetic, the <code>pattern_fill</code> aesthetic, and their “average” color.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tiling3_pattern <span class="ot">&lt;-</span> <span class="cf">function</span>(params, boundary_df, aspect_ratio, <span class="at">legend =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    args <span class="ot">&lt;-</span> <span class="fu">as.list</span>(params)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    args <span class="ot">&lt;-</span> args[<span class="fu">grep</span>(<span class="st">"^pattern_"</span>, <span class="fu">names</span>(args))]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># hexagonal tiling using "regular_polygon" pattern</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>pattern <span class="ot">&lt;-</span> <span class="st">"polygon_tiling"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># three-color tiling using `fill`, `pattern_fill` and their "average"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    avg_col <span class="ot">&lt;-</span> gridpattern<span class="sc">::</span><span class="fu">mean_col</span>(params<span class="sc">$</span>fill, params<span class="sc">$</span>pattern_fill)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>pattern_fill <span class="ot">&lt;-</span> <span class="fu">c</span>(params<span class="sc">$</span>fill, avg_col, args<span class="sc">$</span>pattern_fill)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>x <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>x</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>y <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>y</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>id <span class="ot">&lt;-</span> boundary_df<span class="sc">$</span>id</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    args<span class="sc">$</span>prefix <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">do.call</span>(gridpattern<span class="sc">::</span>patternGrob, args)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A global option <code>ggpattern_geometry_funcs</code> is a named list which contains geometry-based pattern creating functions to use outside of <code>ggpattern</code>.</p>
+<p>The <strong>name</strong> used in this list corresponds to the <code>pattern</code> name used with the geom - in this case we will be using <code>pattern = 'complex'</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggpattern_geometry_funcs =</span> <span class="fu">list</span>(<span class="at">tiling3 =</span> tiling3_pattern))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">outcome =</span> <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">1.9</span>, <span class="fl">3.2</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(trt, outcome)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col_pattern</span>(<span class="fu">aes</span>(<span class="at">fill =</span> trt, <span class="at">pattern_type =</span> trt),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern =</span> <span class="st">'tiling3'</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern_angle =</span> <span class="dv">45</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">pattern_spacing =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_pattern_type_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"hexagonal"</span>, <span class="st">"tetrakis_square"</span>, <span class="st">"rhombille"</span>)) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">1.2</span>, <span class="st">'cm'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="developing-patterns_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="other-examples" class="level2">
+<h2 class="anchored" data-anchor-id="other-examples"><a name="other-example"></a> Other examples</h2>
+<p>The <code>{gridpattern}</code> package contains a vignette on developing <code>{gridpattern}</code> / <code>{ggpattern}</code> patterns with a few more examples including an example of layering patterns on top of each other. Use <a href="https://trevorldavis.com/R/gridpattern/dev/articles/developing-patterns.html"><code>vignette("developing-patterns", package="gridpattern")</code></a> to see it.</p>
+<p>Also the <code>{gridpattern}</code> source contains the full source code for seventeen patterns: https://github.com/trevorld/gridpattern/tree/main/R</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

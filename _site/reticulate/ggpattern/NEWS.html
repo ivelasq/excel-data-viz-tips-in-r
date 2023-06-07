@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>excel-data-viz-tips-in-r – news</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="ggpattern-development" class="level1">
+<h1>ggpattern (development)</h1>
+<section id="deprecated-features" class="level2">
+<h2 class="anchored" data-anchor-id="deprecated-features">Deprecated features</h2>
+<ul>
+<li>In line with upstream changes in <code>{ggplot2}</code> a <code>linewidth</code> aesthetic has been introduced and supersedes the <code>size</code> aesthetic for scaling the width of patterned area border lines (#82). <code>size</code> will remain functioning but deprecated for these geoms and it is recommended to update all code to reflect the new aesthetic.<br>
+Continue to use the <code>size</code> aesthetic to adjust the size of any <em>points</em> in <code>geom_sf_pattern()</code>.</li>
+</ul>
+</section>
+</section>
+<section id="ggpattern-1.0.0" class="level1">
+<h1>ggpattern 1.0.0</h1>
+<section id="bug-fixes-and-minor-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes-and-minor-improvements">Bug fixes and minor improvements</h2>
+<ul>
+<li>Fixes bug in “image” pattern when <code>pattern_type = "tile"</code> (#37). Transparent parts of tiled images are now consistently transparent. We now support the <code>pattern_gravity</code> aesthetic when <code>pattern_type = "tile"</code>.</li>
+</ul>
+</section>
+</section>
+<section id="ggpattern-0.4.2" class="level1">
+<h1>ggpattern 0.4.2</h1>
+<section id="breaking-changes" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-changes">Breaking changes</h2>
+<ul>
+<li><p>To turn off “clipping” certain built-in patterns with the new R 4.1 graphic features and instead use a raster image approximation one should now use <code>options(ggpattern_use_R4.1_masks = FALSE)</code> instead of <code>options(ggpattern_use_R4.1_clipping = FALSE)</code>. Alternatively, using <code>options(ggpattern_use_R4.1_features = FALSE)</code> to turn off all R 4.1 features will continue to work.</p></li>
+<li><p>{ggpattern} removes the following data/functions which were deprecated in a previous version of {ggpattern}:</p>
+<ul>
+<li><code>convert_polygon_df_to_polygon_grob()</code></li>
+<li><code>convert_polygon_df_to_polygon_sf()</code></li>
+<li><code>convert_polygon_sf_to_polygon_df()</code></li>
+</ul></li>
+<li><p>Defunct functions are no longer exported.</p></li>
+</ul>
+</section>
+<section id="new-features" class="level2">
+<h2 class="anchored" data-anchor-id="new-features">New features</h2>
+<ul>
+<li>{ggpattern} now supports <code>geom_histogram_pattern()</code> (#71)</li>
+</ul>
+</section>
+<section id="bug-fixes-and-minor-improvements-1" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes-and-minor-improvements-1">Bug fixes and minor improvements</h2>
+<ul>
+<li><p><code>geom_sf_pattern()</code> and <code>geom_polygon_pattern()</code> now support polygons with holes by using “alpha masking” instead of a “clipping path”. If R 4.1 alpha mask feature is not supported by the active graphics device (or the masking feature is declined) we use a raster image approximation of the pattern. Resolution of the raster approximation can be adjusted by the <code>pattern_res</code> aesthetic whose default in turn can be adjusted by the <code>"ggpattern_res"</code> global option.</p>
+<p>This change fixes patterns filling holed polygons in certain graphic devices (#68). This change fixes patterns sometimes escaping plot window (#60).</p></li>
+<li><p><code>draw_key_polygon_pattern()</code>, <code>GeomMapPattern</code>, <code>GeomPolygonPattern</code>, and <code>GeomSfPattern</code> now draws a “border” grob on top of the “pattern” grob (#72).</p></li>
+<li><p>Continuous “pattern_colour”, “pattern_fill”, and “pattern_fill2” color scales’ default “colourbar” guide support should now work.</p></li>
+<li><p><code>scale_pattern_size_continuous()</code> now uses “pattern_size” aesthetic instead of “size” aesthetic in underlying <code>ggplot2::continuous_scale()</code> call.</p></li>
+<li><p>We now export <code>scale_pattern_alpha()</code> which is an alias of <code>scale_pattern_alpha_continuous()</code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="ggpattern-0.3.1" class="level1">
+<h1>ggpattern 0.3.1</h1>
+<section id="breaking-changes-1" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-changes-1">Breaking changes</h2>
+<p>{ggpattern} removes the following data/functions which were deprecated in a previous version of {ggpattern}:</p>
+<ul>
+<li><code>calculate_bbox_polygon_df()</code></li>
+<li><code>convert_img_to_array()</code></li>
+<li><code>convert_polygon_df_to_alpha_channel()</code></li>
+<li><code>create_gradient_img()</code></li>
+<li><code>fetch_placeholder_img()</code></li>
+<li><code>fill_area_with_img()</code></li>
+<li><code>magick_filter_names</code>, instead use <code>magick::filter_types()</code></li>
+<li><code>magick_gravity_names</code>, instead use <code>magick::gravity_types()</code></li>
+<li><code>magick_pattern_intensity_names</code>, instead use <code>gridpattern::names_magick_intensity</code></li>
+<li><code>magick_pattern_names</code>, instead use <code>gridpattern::names_magick</code></li>
+<li><code>magick_pattern_stripe_names</code>, instead use <code>gridpattern::names_magick_stripe</code></li>
+<li><code>placeholder_names</code>, instead use <code>gridpattern::names_placeholder</code></li>
+<li><code>rotate_polygon_df()</code></li>
+</ul>
+</section>
+<section id="deprecated-features-1" class="level2">
+<h2 class="anchored" data-anchor-id="deprecated-features-1">Deprecated features</h2>
+<p>{ggpattern} now deprecates the following data/functions, they may be removed in a future version of {ggpattern}:</p>
+<ul>
+<li><code>convert_polygon_df_to_polygon_grob()</code></li>
+<li><code>convert_polygon_df_to_polygon_sf()</code></li>
+<li><code>convert_polygon_sf_to_polygon_df()</code></li>
+</ul>
+</section>
+<section id="new-features-1" class="level2">
+<h2 class="anchored" data-anchor-id="new-features-1">New features</h2>
+<ul>
+<li><p>{ggpattern} now supports the following aesthetics (#45):</p>
+<ul>
+<li><code>pattern_grid</code>: Supported by most “geometry” patterns. Default is “square” while “hex” and “hex_circle” allow hexagonal layouts.</li>
+<li><code>pattern_res</code>: Supported by “array” patterns. Allow user to explicitly set resolution of image-based patterns.</li>
+<li><code>pattern_rot</code>: Used by “pch”, “regular_polygon”, “rose”, and “text” patterns to rotate symbol within pattern. ‘rot’ is parameter used in <code>grid:textGrob()</code> to indicate rotation and <code>pattern_angle</code> already used to rotate entire pattern.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bug-fixes-and-minor-improvements-2" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes-and-minor-improvements-2">Bug fixes and minor improvements</h2>
+<ul>
+<li><code>geom_polygon_pattern()</code> and <code>geom_sf_pattern()</code> now support polygons with holes (#26, #44). If R 4.1 clipping features are not supported by the graphic device (or the clipping feature is declined) we must use a raster image approximation of the pattern. Resolution of the raster approximation can be adjusted by the <code>pattern_res</code> aesthetic whose default in turn can be adjusted by the <code>"ggpattern_res"</code> global option.</li>
+</ul>
+</section>
+</section>
+<section id="ggpattern-0.2.0" class="level1">
+<h1>ggpattern 0.2.0</h1>
+<section id="breaking-changes-2" class="level2">
+<h2 class="anchored" data-anchor-id="breaking-changes-2">Breaking changes</h2>
+<p>{ggpattern} now uses {gridpattern} to generate pattern grobs. This means there are minor tweaks to visual behavior:</p>
+<ul>
+<li>‘pattern_spacing’, ‘pattern_xoffset’, and ‘pattern_yoffset’ are now interpreted as ‘spnc’ units instead of ‘npc’ units. and the center of the pattern “grid” is now the center of the viewport. To exactly restore the original appearance of {ggpattern} “geometry” patterns one may need to tweak the ‘pattern_density’, ‘pattern_spacing’, ‘pattern_xoffset’, and/or ‘pattern_yoffset’ aesthetics.</li>
+<li>The resolution of “array” patterns should be close but not identical to before.<br>
+In particular placeholder images will likely be different.</li>
+<li>Custom {ggpattern} patterns can no longer use the same name as a {ggpattern} / {gridpattern} builtin pattern and an error will be thrown if you try to do so.</li>
+</ul>
+<p>The following functions copied from {ggplot2} are no longer exported by {ggpattern}:</p>
+<ul>
+<li><code>alpha()</code>, instead use <code>ggplot2::alpha()</code> or <code>scales::alpha()</code></li>
+<li><code>flip_data()</code>, instead use <code>ggplot2::flip_data()</code></li>
+<li><code>flipped_names()</code>, instead use <code>ggplot2::flipped_names()</code></li>
+<li><code>gg_dep()</code>, instead use <code>ggplot2::gg_dep()</code></li>
+<li><code>has_flipped_aes()</code>, instead use <code>ggplot2::has_flipped_aes()</code></li>
+<li><code>remove_missing()</code>, instead use <code>ggplot2::remove_missing()</code></li>
+<li><code>should_stop()</code>, instead use <code>ggplot2::should_stop()</code></li>
+<li><code>waiver()</code>, instead use <code>ggplot2::waiver()</code></li>
+</ul>
+</section>
+<section id="deprecated-features-2" class="level2">
+<h2 class="anchored" data-anchor-id="deprecated-features-2">Deprecated features</h2>
+<p>{ggpattern} now deprecates the following data/functions, they may be removed in a future version of {ggpattern}:</p>
+<ul>
+<li><code>calculate_bbox_polygon_df()</code></li>
+<li><code>convert_img_to_array()</code></li>
+<li><code>convert_polygon_df_to_alpha_channel()</code></li>
+<li><code>create_gradient_img()</code></li>
+<li><code>fetch_placeholder_img()</code></li>
+<li><code>fill_area_with_img()</code></li>
+<li><code>magick_filter_names</code>, instead use <code>magick::filter_types()</code></li>
+<li><code>magick_gravity_names</code>, instead use <code>magick::gravity_types()</code></li>
+<li><code>magick_pattern_intensity_names</code>, instead use <code>gridpattern::names_magick_intensity</code></li>
+<li><code>magick_pattern_names</code>, instead use <code>gridpattern::names_magick</code></li>
+<li><code>magick_pattern_stripe_names</code>, instead use <code>gridpattern::names_magick_stripe</code></li>
+<li><code>placeholder_names</code>, instead use <code>gridpattern::names_placeholder</code></li>
+<li><code>rotate_polygon_df()</code></li>
+</ul>
+</section>
+<section id="new-features-2" class="level2">
+<h2 class="anchored" data-anchor-id="new-features-2">New features</h2>
+<ul>
+<li><p>{ggpattern} now supports all patterns provided by {gridpattern}. In particular {gridpattern} provides the following “new” patterns:</p>
+<ul>
+<li>“ambient” (the suggested package <code>{ambient}</code> must be installed)</li>
+<li>“pch”</li>
+<li>“polygon_tiling”</li>
+<li>“regular_polygon”</li>
+<li>“rose”</li>
+<li>“text”</li>
+<li>“wave”</li>
+<li>“weave”</li>
+</ul></li>
+<li><p>‘pattern_fill2’ can now be used to set the fill for the vertical lines in the ‘crosshatch’ pattern.<br>
+By default, if unset, it uses ‘pattern_fill’ (#35).</p></li>
+<li><p>‘circle’ pattern can now be adjusted by ‘pattern_type’ and ‘pattern_subtype’. See <code>help("grid.pattern_circle", package = "gridpattern")</code> for more info.</p></li>
+<li><p>‘gradient’ pattern can now use grid gradient feature introduced in R v4.1.0 if <code>options(ggpattern_use_R4.1_gradients = TRUE)</code>.</p></li>
+<li><p>The following package options can now be set by <code>options()</code>:</p>
+<ul>
+<li><code>ggpattern_use_R4.1_clipping</code> If <code>TRUE</code> use the grid clipping path feature introduced in R v4.1.0 else do a <code>rasterGrob</code> approximation of the clipped pattern.</li>
+<li><code>ggpattern_use_R4.1_features</code> If <code>TRUE</code> sets the default for all the other <code>ggpattern_use_R4.1_*</code> options arguments to <code>TRUE</code>.</li>
+<li><code>ggpattern_use_R4.1_gradients</code> If <code>TRUE</code> use the grid gradient feature introduced in R v4.1.0 else do a <code>rasterGrob</code> approximation of the gradient pattern.</li>
+<li><code>ggpattern_use_R4.1_masks</code> If <code>TRUE</code> use the grid mask feature introduced in R v4.1.0. Available for use in custom patterns.</li>
+<li><code>ggpattern_use_R4.1_patterns</code> If <code>TRUE</code> use the grid pattern feature introduced in R v4.1.0. Available for use in custom patterns.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bug-fixes-and-minor-improvements-3" class="level2">
+<h2 class="anchored" data-anchor-id="bug-fixes-and-minor-improvements-3">Bug fixes and minor improvements</h2>
+<ul>
+<li>‘pattern_alpha’ default is now <code>NA</code> (preserve any alpha transparency in <code>pattern_fill</code>, <code>pattern_fill2</code>, and <code>pattern_colour</code> colors) rather than <code>1</code> (set them fully opaque).</li>
+<li>‘circle’ pattern can now be adjusted by ‘pattern_xoffset’ and ‘pattern_yoffset’.</li>
+</ul>
+</section>
+</section>
+<section id="ggpattern-0.1.3-2020-06-28" class="level1">
+<h1>ggpattern 0.1.3 2020-06-28</h1>
+<ul>
+<li>Support POLYGON in <code>geom_sf_pattern()</code> (Issue #5)</li>
+</ul>
+</section>
+<section id="ggpattern-0.1.2-2020-06-28" class="level1">
+<h1>ggpattern 0.1.2 2020-06-28</h1>
+<ul>
+<li>Fix issue with attempts to fill an area with a pattern when it has zero area. (Issue #9)</li>
+</ul>
+</section>
+<section id="ggpattern-0.1.1-2020-04-23" class="level1">
+<h1>ggpattern 0.1.1 2020-04-23</h1>
+<ul>
+<li>Use <code>magick::image_data()</code> instead of <code>magick::as_EBImage()</code> for internal conversion of images to arrays in <code>convert_img_to_array()</code></li>
+</ul>
+</section>
+<section id="ggpattern-0.1.0-2020-04-01" class="level1">
+<h1>ggpattern 0.1.0 2020-04-01</h1>
+<ul>
+<li>Initial release</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

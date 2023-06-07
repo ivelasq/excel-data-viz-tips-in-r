@@ -1,0 +1,12 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
+
+$font-family-sans-serif: "Hanken Grotesk", sans-serif;
+$presentation-heading-color: #244E57;
+$presentation-title-slide-text-align: "left";
+$code-block-font-size: 0.6em;
+$code-color: #871C0F;
+$presentation-h2-font-size: 1.4em;
+$link-color: #028BA8;

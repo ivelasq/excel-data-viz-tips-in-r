@@ -1,0 +1,1276 @@
+---
+title: "Seven essential Excel data visualization tips"
+format:
+  revealjs: 
+    theme: [default, custom.css]
+    filters:
+      - reveal-auto-agenda
+      - social-embeds
+      - fontawesome
+    auto-agenda:
+      bullets: numbered
+      heading: Seven essential Excel data visualization tips
+    transition: fade
+    background-transition: fade
+    highlight-style: pygments
+    title-slide-attributes: 
+      data-background-image: images/title.png
+      data-background-color: "black"
+    footer: "https://ivelasq.quarto.pub/excel-data-viz-tips-in-r"
+knitr: 
+  opts_chunk: 
+    fig.align: center
+---
+
+## Introduction
+
+<center>
+
+<img src="https://pbs.twimg.com/profile_images/1399221981061451781/aJvNk5sS_400x400.jpg" style="border-radius: 50%;" width="250px"/>
+
+[{{< fa brands github >}} \@ivelasq](https://github.com/ivelasq)
+
+[{{< fa brands twitter >}} \@ivelasq3](https://twitter.com/ivelasq3)
+
+[{{< fa brands mastodon >}} \@ivelasq3](https://fosstodon.org/@ivelasq3)
+
+[{{< fa link >}} ivelasq.rbind.io](https://ivelasq.rbind.io)
+
+</center>
+
+## Inspiration for this talk
+
+<center>
+{{< tweet exceldictionary 1585739284837175297 >}}
+</center>
+
+## Another inspiration for this talk
+
+![](images/workflow.png){fig-align="center"}
+
+## Another inspiration for this talk
+
+![](images/workflow2.png){fig-align="center"}
+
+## One more inspiration
+
+![Art by Allison Horst](images/horst-r-excel-disco.png)
+
+---
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+
+1. Image bar chart
+
+:::
+::: {.column width="50%"}
+![](images/image-example.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+
+:::
+::: {.column width="50%"}
+![](images/geo-heat-map.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+3. Color scales
+:::
+::: {.column width="50%"}
+![](images/heatmap-example.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+3. Color scales
+4. Sparklines
+:::
+::: {.column width="50%"}
+![](images/sparkline-example.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+3. Color scales
+4. Sparklines
+5. REPT charts
+:::
+::: {.column width="50%"}
+![](images/rept-chart.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+3. Color scales
+4. Sparklines
+5. REPT charts
+6. Data bars
+:::
+::: {.column width="50%"}
+![](images/data-bar-example.png)
+:::
+:::
+
+## Seven essential Excel data visualization tips
+
+::: {.columns}
+::: {.column width="50%"}
+1. Image bar chart
+2. Geographical heat map
+3. Color scales
+4. Sparklines
+5. REPT charts
+6. Data bars
+7. Icon sets
+:::
+::: {.column width="50%"}
+![](images/rank-example.png)
+:::
+:::
+
+## Tools we're using today {background-color="#22394A" background-image="images/packages.png"}
+
+## {background-color="#22394A" background-image="images/gt-ggplot2-examples.png"}
+
+## ggplot2
+
+> ggplot2 implements the grammar of graphics, a coherent system for describing and building graphs. With ggplot2, you can do more faster by learning one system and applying it in many places. - R4DS
+
+---
+
+## A rapid introduction to ggplot2 {.smaller}
+
+gg stands for <span style="color:#028BA8">grammar of graphics</span>.
+
+* Set up the plot with `ggplot()`
+* Add your data
+* Specify variables with `aes()`
+* Choose chart type with `geom()`
+* Add new elements as layers with a plus sign (`+`) between layers
+* Style with themes
+
+```r
+ggplot(data = df_name, 
+      aes(x = x_var_name, 
+          y = y_var_name)) +
+  geom_type() +
+  ...
+```
+
+---
+
+## A rapid introduction to ggplot2
+
+### Set up plot
+
+```{r}
+#| include: false
+ci_np <- readxl::read_excel("data/ci_np.xlsx")
+ca_np <- readr::read_csv("data/ca_np.csv")
+```
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|3|4,5|6"
+#| output-location: column-fragment
+library(ggplot2)
+
+ggplot(data = ci_np,
+       aes(x = year,
+           y = visitors)) +
+  geom_line()
+```
+
+---
+
+## A rapid introduction to ggplot2 {auto-animate="true"}
+
+### Add customization
+
+```{r}
+#| echo: true
+#| code-line-numbers: "7,8"
+#| output-location: column-fragment
+library(ggplot2)
+
+ggplot(data = ci_np, 
+       aes(x = year, 
+           y = visitors)) +
+  geom_line(
+    color = "#028BA8",
+    linetype = "dashed"
+  )
+```
+
+---
+
+## A rapid introduction to ggplot2 {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "10"
+#| output-location: column-fragment
+library(ggplot2)
+
+ggplot(data = ci_np, 
+       aes(x = year, 
+           y = visitors)) +
+  geom_line(
+    color = "#028BA8",
+    linetype = "dashed"
+  ) +
+  theme_minimal()
+```
+
+---
+
+## A rapid introduction to ggplot2 {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "11,12,13,14,15"
+#| output-location: column-fragment
+library(ggplot2)
+
+ggplot(data = ci_np, 
+       aes(x = year, 
+           y = visitors)) +
+  geom_line(
+    color = "#028BA8",
+    linetype = "dashed"
+  ) +
+  theme_minimal() +
+  labs(
+    x = "Year",
+    y = "Annual park visitors",
+    title = "Channel Islands NP Visitation",
+    subtitle = "(1963 - 2016)"
+  )
+```
+
+---
+
+## A rapid introduction to ggplot2
+
+The ggplot2 package works best with "tidy data".
+
+```{r}
+#| include: false
+tidy <-
+  data.frame(
+    stringsAsFactors = FALSE,
+    park_name = c(
+      "Channel Islands",
+      "Channel Islands",
+      "Channel Islands"
+    ),
+    visitors = c(1200L, 1500L, 1600L),
+    year = c(2012L, 2013L, 2014L)
+  )
+
+untidy <- tidy |> tidyr::pivot_wider(names_from = year, values_from = visitors)
+```
+
+:::{.columns}
+::: {.column width="50%"}
+<span style="color:#D9792E">"Wide" format:</span>
+
+```
+park_name `2012`   `2013`   `2014`
+<chr>     <int>    <int>    <int>
+CI        249594   212029   342161
+```
+:::
+
+::: {.column width="50%"}
+<span style="color:#028BA8">"Long"/"tidy" format:</span>
+
+```      
+park_name visitors   year
+<chr>     <int>      <int>
+CI        249594     2012
+CI        212029     2013
+CI        342161     2014
+```
+
+:::
+:::
+
+---
+
+## gt
+
+> With the gt package, anyone can make wonderful-looking tables using the R programming language. The gt philosophy: we can construct a wide variety of useful tables with a cohesive set of table parts. These include the table header, the stub, the column labels and spanner column labels, the table body, and the table footer.
+
+---
+
+## gt
+
+gt stands for <span style="color:#028BA8">grammar of tables</span>.
+
+![](images/gt-workflow.png){fig-align="center"}
+
+## A rapid introduction to gt {auto-animate="true"}
+```{r}
+#| include: false
+ci_np <-
+  ci_np |> 
+  dplyr::filter(year > 2012)
+```
+
+```{r}
+#| echo: true
+library(gt)
+
+gt(ci_np)
+```
+
+## A rapid introduction to gt {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|4,5"
+library(gt)
+
+gt(ci_np) |>
+  tab_header(title = "Channel Islands NP Visitation",
+             subtitle = "Annual park visitors")
+```
+
+## A rapid introduction to gt {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|6,7,8"
+library(gt)
+
+gt(ci_np) |>
+  tab_header(title = "Channel Islands NP Visitation",
+             subtitle = "Annual park visitors") |>
+  fmt_number(columns = visitors,
+             decimals = 0,
+             use_seps = TRUE)
+```
+
+## A rapid introduction to gt {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "|10"
+library(gt)
+
+gt(ci_np) |>
+  tab_header(
+    title = "Channel Islands NP Visitation",
+    subtitle = "Annual park visitors") |> 
+  fmt_number(columns = visitors,
+             decimals = 0,
+             use_seps = TRUE) |> 
+  data_color(visitors)
+```
+
+## Seven essential Excel data visualization tips (in R!) {.center background-color="#22394A"}
+
+```{css}
+#| echo: false
+.center h2 {
+  text-align: center;
+}
+```
+
+# Image bar chart
+
+## Image bar chart
+
+![](excel-tips-gifs/1-image-bar-chart.gif){fig-align="center"}
+
+## A bar plot
+
+```{r}
+head(mtcars)
+```
+
+## A bar plot
+
+```{r}
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl))
+```
+
+## A bar plot  {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "|5"
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl))) +
+  theme(legend.position = "none") + 
+  labs(title = "ggplot fill")
+```
+
+## A bar plot  {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "|6"
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl)),
+           color = "black")
+```
+
+## A bar plot  {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "|7,8"
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl)),
+           color = "black") +
+  theme_minimal() + 
+  labs(title = "ggplot fill")
+```
+
+## Hello, ggpattern!
+
+::: {.columns}
+
+::: {.column width="60%"}
+> ggpattern provides custom ggplot2 geoms which support filled areas with geometric and image-based patterns.
+:::
+
+::: {.column width="40%"}
+![](images/ggpattern.png)
+:::
+:::
+
+## A bar plot + ggpattern example
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|2|5|7,8|9"
+library(ggplot2)
+library(ggpattern)
+
+ggplot(data = mtcars) +
+  geom_bar_pattern(
+    aes(x = cyl,
+        pattern_fill = as.factor(cyl)), 
+    pattern = "stripe",
+    fill    = "white",
+    color  = "black") +
+  theme(legend.position = "none") + 
+  labs(title = "ggpattern pattern_fill")
+```
+
+## A cuter bar plot + ggpattern example
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|8,9"
+library(ggplot2)
+library(ggpattern)
+
+ggplot(data = mtcars) +
+  geom_bar_pattern(
+    aes(x = cyl,
+        pattern_fill = as.factor(cyl)), 
+    pattern = "placeholder",
+    pattern_type = "kitten",
+    fill = "white",
+    color = "black") +
+  labs(title = "ggpattern placeholder image") + 
+  theme(legend.position = 'none')
+```
+
+## An image bar chart with ggpattern
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|4,5,6|13,14|16,17|12"
+library(ggplot2)
+library(ggpattern)
+
+logo1 <- "~/R/excel-data-viz-tips-in-r/images/excel.png"
+logo2 <- "~/R/excel-data-viz-tips-in-r/images/sheets.png"
+logo3 <- "~/R/excel-data-viz-tips-in-r/images/gt-tab.png"
+
+ggplot(data = mtcars) +
+  geom_bar_pattern(
+    aes(x = cyl,
+        pattern_filename = as.factor(cyl)),
+    alpha = 0,
+    pattern = "image",
+    pattern_type = "squish"
+  ) +
+  scale_pattern_filename_manual(
+    values = c(`4` = logo1, `6` = logo2, `8` = logo3)) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs(title = "ggpattern custom image")
+```
+
+# Geographical heat map
+
+## Geographical heat map
+
+Also known as "choropleth" maps.
+
+![](excel-tips-gifs/2-heat-map.gif){fig-align="center" width="400"}
+
+## A world map
+
+```{r}
+#| code-line-numbers: "|1|2,3|6"
+library(dplyr)
+library(ggplot2)
+library(maps)
+  
+# Access world map data using the `map_data()` function
+world_map <- map_data("world")
+head(world_map)
+```
+
+## A world map
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "|1|2|3,4|5,6"
+ggplot(data = world_map) +
+  geom_map(map = world_map,
+           aes(x = long,
+               y = lat,
+               map_id = region))
+```
+
+. . .
+
+```{r}
+#| echo: false
+ggplot(data = world_map) +
+  geom_map(map = world_map,
+           aes(x = long,
+               y = lat,
+               map_id = region))
+```
+
+## A little more complex world map
+
+```{r}
+#| code-line-numbers: "|6,7,8|9"
+#| echo: true
+#| output-location: slide
+#| warning: false
+ggplot(data = world_map) +
+  geom_map(map = world_map,
+           aes(x = long,
+               y = lat,
+               map_id = region),
+           color = "white",
+           size = 0.3,
+           fill = "#22394A") +
+  theme_void()
+```
+
+## A world map with data
+
+*Using this week's [TidyTuesday](https://github.com/rfordatascience/tidytuesday) data!*
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+library(dplyr)
+owid_energy <- 
+  readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-06-06/owid-energy.csv')
+
+owid_energy_2021 <-
+  owid_energy |>
+  filter(year == 2021) |>
+  mutate(
+    country =
+      case_match(
+        country,
+        "United States" ~ "USA",
+        "United Kingdom" ~ "UK",
+        "Cote d'Ivoire" ~ "Ivory Coast",
+        "Democratic Republic of Congo" ~ "Democratic Republic of the Congo",
+        "Congo" ~ "Republic of Congo",
+        "Czechia" ~ "Czech Republic",
+        .default = country
+      )
+  )
+```
+
+## A world map with data
+
+```{r}
+#| echo: true
+#| warning: false
+#| code-line-numbers: "|3"
+world_energy <- 
+  map_data("world") |>
+  left_join(owid_energy_2021, join_by(region == country))
+```
+
+## A world map with data
+
+```{r}
+#| echo: true
+#| warning: false
+#| code-line-numbers: "|1,2|6"
+ggplot(data = world_energy,)+
+  geom_map(map = world_energy,
+           aes(x = long,
+               y = lat, 
+               map_id = region,
+               fill = per_capita_electricity),
+           color = "white", 
+           size = 0.3)
+```
+
+## A world map with data and *style*
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|1,15,16"
+library(MexBrewer)
+
+ggplot(data = world_energy) +
+  geom_map(map = world_energy,
+           aes(x = long,
+               y = lat, 
+               map_id = region,
+               fill = log(per_capita_electricity)),
+           color = "white", 
+           size = 0.3) +
+  scale_fill_gradientn(colors = mex.brewer("Revolucion"),
+                       name = "1000's of kWh") +
+  theme_void() +
+  theme(legend.position="bottom") +
+  labs(title = "Energy use per person, 2021",
+       subtitle = "Energy use not only includes electricity, but other also areas of consumption including transport, heating, and cooking.")
+```
+
+## A U.S. map
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|4,6"
+library(ggplot2)
+library(maps)
+
+state <- map_data("state")
+
+ggplot(data = state) +
+  geom_map(map = state,
+           aes(x = long, 
+               y = lat, 
+               map_id = region),
+           color = "white") +
+  ggtitle("U.S. Map")
+```
+
+## A U.S. map with data
+
+```{r}
+#| echo: true
+library(dplyr)
+
+us_data_2023 <-
+  readxl::read_excel("data/table_5_04_b.xlsx",
+                     skip = 3) |> 
+  transmute(state = tolower(`Census Division\r\nand State`),
+         energy = `March 2023 YTD...2`)
+
+us_map <- 
+  map_data("state") |>
+  left_join(us_data_2023, join_by(region == state))
+
+head(us_map)
+```
+
+## A U.S. map with data
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|4,5|9"
+library(ggplot2)
+library(maps)
+
+ggplot(data = us_map) +
+  geom_map(map = us_map,
+           aes(x = long, 
+               y = lat, 
+               map_id = region,
+               fill = energy),
+           color = "white") +
+  ggtitle("U.S. Map") +
+  theme_void()
+```
+
+# Color scales
+
+## Color scales
+
+Also known as "heatmaps".
+
+![](excel-tips-gifs/6-color-scales.gif){fig-align="center"}
+
+## A heatmap with ggplot2
+
+```{r}
+USPersonalExpenditure
+```
+
+## A heatmap with ggplot2
+
+```{r}
+library(tidyr)
+
+upe <-
+  USPersonalExpenditure |> 
+  as_tibble(rownames = NA) |> 
+  tibble::rownames_to_column("categories") |> 
+  pivot_longer(cols = `1940`:`1960`,
+               names_to = "year",
+               values_to = "expenditures")
+
+head(upe)
+```
+
+## A heatmap with ggplot2
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|7|8,9,10"
+library(ggplot2)
+
+ggplot(data = upe, 
+       aes(x = year, 
+           y = categories, 
+           fill = expenditures)) +
+  geom_tile() +
+  scale_fill_gradient(low = "#368990",
+                      high = "#F4C659",
+                      guide = "none")
+```
+
+## A heatmap with ggplot2
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|5,6|10,11"
+ggplot(data = upe,
+       aes(x = year,
+           y = categories,
+           fill = expenditures)) +
+  geom_tile(color = "white",
+            size = 0.3) +
+  scale_fill_gradient(low = "#368990",
+                      high = "#F4C659",
+                      guide = "none") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+```
+
+## A heatmap with ggplot2
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| warning: false
+#| code-line-numbers: "|7,8|10,11"
+ggplot(data = upe,
+       aes(x = year,
+           y = categories,
+           fill = expenditures)) +
+  geom_tile(color = "white",
+            size = 0.3) +
+  geom_text(aes(label = scales::dollar(expenditures)),
+            color = "white") +
+  scale_fill_gradient(low = "#368990",
+                      high = "#F4C659",
+                      guide = "none") +
+  theme_minimal() +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank()) +
+  labs(title = "United States Personal Expenditures",
+       subtitle = "(in billions of dollars)")
+```
+
+## But what if we already have a table?
+
+```{r}
+upe_original <-
+  USPersonalExpenditure |> 
+  as_tibble(rownames = NA) |>  
+  tibble::rownames_to_column("categories") 
+
+upe_original
+```
+
+## Hello, gt!
+
+```{r}
+library(gt)
+
+upe_original |> 
+  gt()
+```
+
+## A heatmap with gt and gtExtras
+
+```{r}
+#| code-line-numbers: "5,6"
+library(gt)
+
+upe_original |> 
+  gt() |> 
+  data_color(columns = `1940`:`1960`, 
+             palette = c("#368990", "#F4C659")) 
+```
+
+## A heatmap with gt
+
+```{r}
+#| code-line-numbers: "7"
+library(gt)
+
+upe_original |>
+  gt(rowname_col = "categories") |>
+  data_color(columns = `1940`:`1960`, 
+             palette = c("#368990", "#F4C659")) |> 
+  fmt_currency(`1940`:`1960`)
+```
+
+## A heatmap with gt and gtExtras
+
+```{r}
+#| code-line-numbers: "8,9"
+library(gt)
+
+upe_original |>
+  gt(rowname_col = "categories") |>
+  data_color(
+    columns = `1940`:`1960`,
+    palette = c("#368990", "#F4C659")) |> 
+  fmt_currency(`1940`:`1960`) |> 
+  tab_header(title = "United States Personal Expenditures",
+             subtitle = "(in billions of dollars)")
+```
+
+# Sparklines
+
+## Sparklines
+
+![](excel-tips-gifs/3-sparklines.gif){fig-align="center"}
+
+## Sparklines with ggplot2
+
+```{r}
+glimpse(ca_np)
+```
+
+## Sparklines with ggplot2
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+ggplot(data = ca_np) +
+  geom_line(aes(x = year, 
+                y = visitors))
+```
+
+## Sparklines with ggplot2
+
+```{r}
+#| code-line-numbers: "7|"
+library(ggplot2)
+library(dplyr)
+
+ggplot(data = ca_np) +
+  geom_line(aes(x = year, 
+                y = visitors, 
+                group = park_name))
+```
+
+## Sparklines with ggplot2
+
+```{r}
+#| code-line-numbers: "5"
+ggplot(data = ca_np) +
+  geom_line(aes(x = year, 
+                y = visitors, 
+                group = park_name)) +
+  facet_wrap(park_name ~ .)
+```
+
+## Hello, gtExtras! {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+
+* 7 themes that style almost every element of a gt table
+* Helper functions for aligning/padding numbers, adding fontawesome icons, images, highlighting, and more
+* 12 plotting functions for inline sparklines, win-loss charts, and more
+
+...and way more!
+
+:::
+
+::: {.column width="50%"}
+![](images/gtextras.png)
+:::
+:::
+
+## Sparklines with gt
+
+```{r}
+library(gt)
+library(gtExtras)
+
+ca_np |>
+  gt()
+```
+
+## Sparklines with gt
+
+```{r}
+#| code-line-numbers: "|5,6"
+library(gt)
+library(gtExtras)
+
+ca_np |>
+  dplyr::summarize(visitors_list = list(visitors),
+                   .by = park_name) |>
+  gt() 
+```
+
+## Sparklines with gt
+
+```{r}
+#| code-line-numbers: "8"
+#| output-location: column
+library(gt)
+library(gtExtras)
+
+ca_np |>
+  dplyr::summarize(visitors_list = list(visitors),
+                   .by = park_name) |>
+  gt() |>
+  gt_plt_sparkline(visitors_list)
+```
+
+# REPT Charts
+
+## REPT Charts
+
+Also known as unit plots, dot plots, etc..
+
+![](excel-tips-gifs/4-rept.gif){fig-align="center"}
+
+## REPT Charts in ggplot2
+
+```{r}
+#| code-line-numbers: "|4,5|9"
+#| output-location: slide
+library(ggplot2)
+
+ggplot(data = airquality) +
+  geom_dotplot(aes(x = Ozone),
+               dotsize = .75, 
+               stackratio = 1.2, 
+               fill = "steelblue") +
+  theme_minimal() +
+  coord_flip()
+```
+
+## REPT Charts in gt
+
+```{r}
+library(gt)
+library(gtExtras)
+
+gt(data = mtcars)
+```
+
+## REPT Charts in gt with gtExtras
+
+```{r}
+#| code-line-numbers: "5,6"
+library(gt)
+library(gtExtras)
+
+gt(data = mtcars) |> 
+  gt_fa_repeats(column = cyl, 
+                name = "square")
+```
+
+## REPT Charts in gt with gtExtras
+
+```{r}
+#| code-line-numbers: "5,6"
+library(gt)
+library(gtExtras)
+
+gt(data = mtcars) |> 
+  gt_fa_repeats(column = cyl,
+                name = "car")
+```
+
+# Data bars
+
+## Data bars
+
+![](excel-tips-gifs/5-data-bars.gif)
+
+## Data bars in ggplot2
+
+```{r}
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl)),
+           color = "black") +
+  theme(legend.position = "none") + 
+  labs(title = "ggplot fill")
+```
+
+## Data bars in ggplot2 {auto-animate="true"}
+
+```{r}
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl)),
+           color = "black") +
+  theme(legend.position = "none") + 
+  labs(title = "ggplot fill") +
+  coord_flip()
+```
+
+## Data bars in ggplot2
+
+```{r}
+#| output-location: slide
+#| code-line-numbers: "10,11,12,13,14,15,16|11,12,13"
+library(ggplot2)
+
+ggplot(data = mtcars) +
+  geom_bar(aes(x = cyl,
+               fill = as.factor(cyl)),
+           color = "black") +
+  theme(legend.position = "none") +
+  labs(title = "ggplot fill") +
+  coord_flip() +
+  geom_text(
+    stat = "count",
+    aes(x = cyl, y = after_stat(count), 
+        label = after_stat(count)),
+    hjust = 1.3,
+    color = "black",
+    size = 8)
+```
+
+## Data bars in gt with gtExtras
+
+```{r}
+mtcars |> 
+  gt() |> 
+  gt_fa_repeats(cyl, name = "car")
+```
+
+## Data bars in gt with gtExtras
+
+```{r}
+#| code-line-numbers: "4"
+mtcars |> 
+  gt() |> 
+  gt_fa_repeats(cyl, name = "car") |> 
+  gt_plt_bar(column = disp)
+```
+
+## Data bars in gt with gtExtras {auto-animate="true"}
+
+```{r}
+#| output-location: slide
+mtcars |> 
+  gt() |> 
+  gt_fa_repeats(cyl, name = "car") |> 
+  gt_plt_bar(column = disp,
+             color = "#871C0F",
+             scale_type = "number") |> 
+  gt_plt_bar(column = hp,
+             color = "#028BA8",
+             scale_type = "number") |> 
+  gt_plt_bar(column = drat,
+             color = "#244E57",
+             scale_type = "number")
+```
+
+# Icon sets
+
+## Icon sets
+
+![](excel-tips-gifs/7-icons.gif){fig-align="center"}
+
+## Icon sets
+
+```{r}
+mtcars |> 
+  gt() |> 
+  gt_fa_repeats(cyl, name = "car") |> 
+  gt_plt_bar(column = disp) |> 
+  gt_fa_rank_change(column = disp,
+                    fa_type = "arrow")
+```
+
+## Wrapping up
+
+::: {.columns}
+::: {.column width="50%"}
+1. Geographical heat map
+2. Image bar chart
+3. Color scales
+4. Sparklines
+5. REPT charts
+6. Data bars
+7. Icon sets
+:::
+
+::: {.column width="50%"}
+![](images/gif.gif)
+:::
+:::
+
+## Installing required packages
+
+To run the code in this presentation, please run the following code:
+
+```r
+if (!require("pak")) install.packages("pak")
+pak::pkg_install("tidyverse", "ggpattern", "gt", "gtExtras", "maps")
+```
+
+## Create plots with esquiesse
+
+<center><script src="https://fast.wistia.com/embed/medias/78eyp4qfb2.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_embed wistia_async_78eyp4qfb2" style="height:376px;position:relative;width:640px"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/78eyp4qfb2/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></center>
+
+## Save output
+
+### ggplot2
+
+```r
+ggsave(
+  filename,
+  plot = last_plot(),
+  device = NULL,
+  path = NULL,
+  scale = 1,
+  width = NA,
+  height = NA,
+  units = c("in", "cm", "mm", "px"),
+  dpi = 300,
+  limitsize = TRUE,
+  bg = NULL,
+  ...
+)
+```
+
+## Save output
+
+### gt
+
+```r
+as_word(
+  data,
+  align = "center",
+  caption_location = c("top", "bottom", "embed"),
+  caption_align = "left",
+  split = FALSE,
+  keep_with_next = TRUE
+)
+```
+
+## Resources
+
+**Learning R as an Excel user**
+
+- [Hadley Wickham, Mine Çetinkaya-Rundel, & Garrett Grolemund: R for Data Science](https://r4ds.hadley.nz/)
+- [Julie Lowndes & Allison Horst: R for Excel users](https://rstudio-conf-2020.github.io/r-for-excel/)
+- [Tanya Shapiro: Intro to ggplot2](https://tanyaviz.com/talks/rladies-paris-intro-ggplot/)
+- [Jumping Rivers Blog](https://www.jumpingrivers.com/tags/excel/)
+
+**World maps** 
+
+- [Geeks for Geeks: How to make a world map with R](https://www.geeksforgeeks.org/how-to-make-world-map-with-ggplot2-in-r/)
+
+## Resources
+
+**Heatmaps** 
+
+- [Jānis Stūris: How to create a simple heatmap in R](https://datacornering.com/how-to-create-a-simple-heatmap-in-r-ggplot2/)
+
+**Styling gt** 
+
+- [Rich Iannone: Color coding your data in {gt} 0.9.0](https://posit.co/blog/color-coding-your-data-in-gt-0-9-0/)
+- [Tom Mock: Beautiful tables with gt and gtExtras](https://thomasmock.quarto.pub/gtextras-overview/#/)
